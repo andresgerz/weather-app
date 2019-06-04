@@ -1,0 +1,72 @@
+.forecast-wrapper {
+  height: 285px;
+  width: 1147px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+
+.forecast-wrapper .column:nth-of-type(2n+1) .row-top {
+  background-color: #2D303D;
+  height: 46px;
+}
+
+.forecast-wrapper .column:nth-of-type(2n+1) .row-bottom {
+  background-color: #323544;
+  height: 239px;
+}
+
+.forecast-wrapper .column:nth-of-type(2n) .row-top {
+  background-color: #232531;
+  height: 46px;
+}
+
+.forecast-wrapper .column:nth-of-type(2n) .row-bottom {
+  background-color: #262936;
+  height: 239px;
+}
+
+
+.forecast-wrapper .column:nth-child(1) {
+  width: 420px;
+}
+
+.forecast-wrapper .column {
+  width: 120px;
+}
+
+.row-top {  
+  text-align: center;
+  padding-top: 15px;
+  font-size: 16px;
+  
+}
+
+.row-bottom {
+  padding-top: 100px;
+  padding-left: 30px;
+}
+
+.row-bottom strong {
+  font-size: 30px;
+  
+}
+
+
+.row-bottom > h1 {
+  font-size: 80px;
+  font-weight: bold;
+  
+  
+}
+
+.forecast-wrapper {
+  justify-content: center;
+  position: relative;
+}
+
+.row.forecast-days {
+  top: -150px;
+  position: absolute;
+ 
+}

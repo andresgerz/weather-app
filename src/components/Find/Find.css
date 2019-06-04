@@ -1,0 +1,25 @@
+#find {
+  margin-top: 144px;
+  position: relative;
+}
+
+#find input {
+  position: absolute;
+  height: 56px;
+  width: 1147px;
+  border-radius: 100px;
+  text-indent: 25px;
+  background-color: #1D202B;
+
+}
+
+#find Button {
+  position: absolute;
+  left: 1022px;
+  top: 5px;
+  width: 120px;
+  height: 46px;
+  border-radius: 100px;
+  color: white;
+  background-color: #009AD8;
+}
