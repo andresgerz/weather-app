@@ -1,9 +1,6 @@
 .App {
   
-  width: 1547;
-  height: 1200px;
-  
-  
+
 }
 
 #navbar-web {
@@ -17,7 +14,8 @@
 }
 
 #find {
-  position: absolute;
+  border: 1px solid red;
+  margin-left: 100px;
 }
 
 #table {
@@ -28,16 +26,17 @@
 
 #background-top {
   background-color: #585B6D;
+  height: 350px;
 }
 
 #background-center {
   background-color: #1D202B;
-  
+  height: 685.5px;
 
 }
 
 #background-bottom {
   background-color: #262936;
-  
+  height: 486px;
   
 }

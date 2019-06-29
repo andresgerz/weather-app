@@ -8,12 +8,16 @@ export default class Find extends Component {
   render() {
     return (
       
-      <Form id="find">
-        <Form.Control type="text" placeholder="Find your location..." /> 
-        <Button>Search</Button>
+      <Form id="find-wrapper">
         
+        <Form.Control className="input-find" placeholder="Find your location..." />
+               
+        <Button className="button-find" variant="primary" type="submit">
+          Find
+        </Button>
       </Form>
-      
+
+
     );
   }
 }

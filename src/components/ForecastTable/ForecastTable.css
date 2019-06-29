@@ -1,8 +1,11 @@
 .forecast-wrapper {
   height: 285px;
   width: 1147px;
+  border-collapse: collapse;
   border-radius: 10px;
   color: #fff;
+  justify-content: center;
+  position: relative;
 }
 
 
@@ -11,9 +14,16 @@
   height: 46px;
 }
 
-.forecast-wrapper .column:nth-of-type(2n+1) .row-bottom {
+.forecast-wrapper .column:nth-of-type(2n+1) .row-bottom-next-days {
   background-color: #323544;
   height: 239px;
+}
+
+.forecast-wrapper .row-bottom {
+  background-color: #323544;
+  height: 239px;
+  padding: 20px
+
 }
 
 .forecast-wrapper .column:nth-of-type(2n) .row-top {
@@ -21,7 +31,7 @@
   height: 46px;
 }
 
-.forecast-wrapper .column:nth-of-type(2n) .row-bottom {
+.forecast-wrapper .column:nth-of-type(2n) .row-bottom-next-days {
   background-color: #262936;
   height: 239px;
 }
@@ -42,13 +52,13 @@
   
 }
 
-.row-bottom {
+.row-bottom-next-days {
   padding-top: 100px;
-  padding-left: 30px;
+  padding-left: 20px;
 }
 
-.row-bottom strong {
-  font-size: 30px;
+.row-bottom-next-days strong {
+  font-size: 20px;
   
 }
 
@@ -60,10 +70,6 @@
   
 }
 
-.forecast-wrapper {
-  justify-content: center;
-  position: relative;
-}
 
 .row.forecast-days {
   top: -150px;

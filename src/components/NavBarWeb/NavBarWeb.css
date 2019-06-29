@@ -1,5 +1,16 @@
 #navbar-wrapper {
-  height: 120px;
+  height: 139px;
+  background-color: #1D202B;
 }
 
+#navbar-wrapper .button-home {
+  background-color: #1D202B;
+  border-radius: 30px;
+  padding: -20px 10px;  
+}
+
+#navbar-wrapper .buttons {
+  background-color: #1D202B;
+  border: #1D202B;
+}
 

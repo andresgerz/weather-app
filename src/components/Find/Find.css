@@ -1,24 +1,26 @@
-#find {
-  margin-top: 144px;
-  position: relative;
+#find-wrapper {
+  width: 60%;
+  height: 56px;
+  margin: auto;
+  margin-top: 151.5px;
 }
 
-#find input {
-  position: absolute;
+#find-wrapper .input-find {
+  float: left;
   height: 56px;
-  width: 1147px;
+  
   border-radius: 100px;
   text-indent: 25px;
   background-color: #1D202B;
 
 }
 
-#find Button {
-  position: absolute;
-  left: 1022px;
-  top: 5px;
+#find-wrapper .button-find {
+  float: left;
   width: 120px;
   height: 46px;
+  margin-left: -125px;
+  margin-top: 5px; 
   border-radius: 100px;
   color: white;
   background-color: #009AD8;
