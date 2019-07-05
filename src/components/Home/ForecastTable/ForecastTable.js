@@ -17,7 +17,7 @@ import {
   faCloudShowersHeavy,
   faCloudMoon,
   faCloudMoonRain,
-  faPooStorm
+  faPooStorm,
 
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -33,7 +33,7 @@ library.add(
   faCloudShowersHeavy,
   faCloudMoon,
   faCloudMoonRain,
-  faPooStorm
+  faPooStorm,
 
 )
 
@@ -119,14 +119,7 @@ export default class ForecastTable extends Component {
           };
 
         }; 
-        //make to take the description more occurrence
-        // for (let z=0 ; z<days.length ; z++) {
-        //   // for(let weather=0; weather<weatherObject[days[z]][4].length; weather++) {
-          
-
-        //   }
-        // }
-
+     
 
         console.log(weatherObject[days[2]][0]);
       
@@ -136,8 +129,6 @@ export default class ForecastTable extends Component {
         console.log(forecastObject);
         console.log(dailyTemp);
 
-        // id: 800 == faSun
-
 
       this.setState({
 
@@ -146,19 +137,24 @@ export default class ForecastTable extends Component {
         day1Left: moment().locale("en").format("dddd"),
         tmax1: Math.round(dailyTemp[days[0]].temp),
         tmin1: Math.round(dailyTemp[days[0]].temp_min),
+        icon1: weatherObject[days[0]][0],
         day2: moment().day(2).locale("en").format("dddd"),
         tmax2: Math.round(dailyTemp[days[1]].temp_max),
         tmin2: Math.round(dailyTemp[days[1]].temp_min),
-        
+        icon2: weatherObject[days[1]][4],
         day3: moment().day(3).locale("en").format("dddd"),
         tmax3: Math.round(dailyTemp[days[2]].temp_max),
         tmin3: Math.round(dailyTemp[days[2]].temp_min),
+        icon3: weatherObject[days[2]][4],
         day4: moment().day(4).locale("en").format("dddd"),
         tmax4: Math.round(dailyTemp[days[3]].temp_max),
         tmin4: Math.round(dailyTemp[days[3]].temp_min),
+        icon4: weatherObject[days[3]][4],
         day5: moment().day(5).locale("en").format("dddd"),
         tmax5: Math.round(dailyTemp[days[4]].temp_max),
-        tmin5: Math.round(dailyTemp[days[4]].temp_min)
+        tmin5: Math.round(dailyTemp[days[4]].temp_min),
+        icon5: weatherObject[days[4]][0]
+
        
 
       });
@@ -167,15 +163,34 @@ export default class ForecastTable extends Component {
       console.log(error);
     })
 
-    console.log(icon2);
   }
 
-  // changeIcon() {
-  //   this.title.current.style.icon = ''
-  // }
+  changeIcon(param) {
+  
+    const iconTable = {
+      "clear sky": faSun,
+      "scattered clouds": faSun,
+      "0": faMoon,
+      "overcast clouds": faCloud,
+      "3": faCloudRain,
+      "broken clouds": faCloudSun,
+      "few clouds": faCloudSun,
+      "5": faCloudSunRain,
+      "7": faCloudShowersHeavy,
+      "8": faCloudMoon,
+      "9": faCloudMoonRain,
+      "10": faPooStorm
+
+    }    
+    return iconTable[param]
+  }    
+
+
+  
 
 
   render() {
+    console.log(this.state.icon5);
     return (
       
       <div className="container forecast-wrapper">
@@ -187,30 +202,61 @@ export default class ForecastTable extends Component {
               <p>{this.state.name}</p>
               <h1>{this.state.tmax1} ºC</h1>
               <p>{this.state.tmin1} ºC</p>
-              
-              <FontAwesomeIcon icon={faCloudRain} size="3x" className="weather-icon" />
+              <FontAwesomeIcon icon={this.changeIcon(this.state.icon1)} size="2x" className="weather-icon" />
+
             </div>
           </div>
 
           <div className="column">
             <div className="row-top">{this.state.day2}</div>
             <div className="row-bottom-next-days">
-              <strong>{this.state.tmax2} ºC</strong><br></br>{this.state.tmin2} ºC
-              <FontAwesomeIcon icon={this.changeIcon} size="2x" className="weather-icon" />
+              <div>
+                <FontAwesomeIcon icon={this.changeIcon(this.state.icon2)} size="2x" className="weather-icon" />
+              </div>
+              <div>
+                <strong>{this.state.tmax2} ºC</strong><br></br>{this.state.tmin2} ºC
+              </div>
+                          
 
             </div>
           </div>
           <div className="column">
             <div className="row-top">{this.state.day3}</div>
-            <div className="row-bottom-next-days"><strong>{this.state.tmax3} ºC</strong><br></br>{this.state.tmin3} ºC</div>
+            <div className="row-bottom-next-days">
+              <div>
+                <FontAwesomeIcon icon={this.changeIcon(this.state.icon3)} size="2x" className="weather-icon" />  
+              </div>
+              <div>
+                <strong>{this.state.tmax3} ºC</strong><br></br>{this.state.tmin3} ºC</div>
+              </div>
+              
+              
+
           </div>
           <div className="column">
             <div className="row-top">{this.state.day4}</div>
-            <div className="row-bottom-next-days"><strong>{this.state.tmax4} ºC</strong><br></br>{this.state.tmin4} ºC</div>
+
+            <div className="row-bottom-next-days">
+              <div>
+                <FontAwesomeIcon icon={this.changeIcon(this.state.icon4)} size="2x" className="weather-icon" />
+              </div>
+              <div>
+                <strong>{this.state.tmax4} ºC</strong><br></br>{this.state.tmin4} ºC</div>
+              </div>            
+
           </div>
           <div className="column">
             <div className="row-top">{this.state.day5}</div>
-            <div className="row-bottom-next-days"><strong>{this.state.tmax5} ºC</strong><br></br>{this.state.tmin5} ºC</div>
+            <div className="row-bottom-next-days">
+              <div>
+                <FontAwesomeIcon icon={this.changeIcon(this.state.icon5)} size="2x" className="weather-icon" />
+              </div>
+              <div>
+                <strong>{this.state.tmax5} ºC</strong><br></br>
+                {this.state.tmin5} ºC
+              </div>              
+            </div>
+
           </div>
         
         </div>
