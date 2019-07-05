@@ -1,6 +1,7 @@
 #navbar-wrapper {
   height: 139px;
   background-color: #1D202B;
+  
 }
 
 #navbar-wrapper .button-home {
@@ -12,5 +13,25 @@
 #navbar-wrapper .buttons {
   background-color: #1D202B;
   border: #1D202B;
+}
+
+
+.website-name {
+  margin: 30px 0 0 400px;
+}
+
+
+.weather-app {
+  float: left;
+  height: 100%;
+  width: 49%;
+
+}
+
+.weather-icon-app {
+  float: left;
+  width: 10%;
+  height: 100%;
+  margin: 50px;
 }
 

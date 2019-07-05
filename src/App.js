@@ -1,37 +1,41 @@
 import React, {Component} from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // Components
+import Home from './components/Home/Home';
 import NavBarWeb from './components/NavBarWeb/NavBarWeb';
-import Find from './components/Find/Find';
-import ForecastTable from './components/ForecastTable/ForecastTable';
-import Maps from './components/Maps/Maps';
-import News from './components/News/News';
+import Maps from './components/Home/Maps/Maps';
+import Alerts from './components/Alerts/Alerts';
+import News from './components/Home/News/News';
+import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
-
+ 
+// Styles
 import './App.css';
 
 class App extends Component {
   render() {
-    return  <div className="App text-white">
+    return  <Router>
               
+              <div className="App text-white">
+                        
               <NavBarWeb id="navbar-web" />
-              <div id="background-top"> 
-                <Find id="find" />
-              </div>
-              <div id="background-center">
-                <ForecastTable id="table" />
-                <Maps />
-              </div>
-              <div id="background-bottom">
-                <News />
+              <div>
+            
+                <Route path="/Home" component={Home} />
+                <Route path="/Maps" component={Maps} />
+                <Route path="/Alerts" component={Alerts} />
+                <Route path="/News" component={News} />
+                <Route path="/Contact" component={Contact} />
+                <div id="background-bottom">
+                
                 <Footer />
+                </div>
               </div>
-             
-              
-              
-             
-          
+            
             </div>
+        
+          </Router>
   }
 }
 

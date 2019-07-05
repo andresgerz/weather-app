@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 
+// Styles
 import './Footer.css';
 
 export default class Footer extends Component {

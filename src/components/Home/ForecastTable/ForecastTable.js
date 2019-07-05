@@ -8,24 +8,32 @@ import { isArray } from 'util';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import {
+  faSun,
+  faMoon,
   faCloud,
   faCloudRain,
   faCloudSun,
   faCloudSunRain,
   faCloudShowersHeavy,
-  faCloudMoonRain
+  faCloudMoon,
+  faCloudMoonRain,
+  faPooStorm
 
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 library.add(
   fab,
+  faSun,
+  faMoon,
   faCloud,
   faCloudRain,
   faCloudSun,
   faCloudSunRain,
   faCloudShowersHeavy,
-  faCloudMoonRain
+  faCloudMoon,
+  faCloudMoonRain,
+  faPooStorm
 
 )
 
@@ -42,19 +50,24 @@ export default class ForecastTable extends Component {
       name: [],
       day1: "",
       temp1: "",
+      icon1: "",
       tmin1: "",
       day2: "",
       tmax2: "",
       tmin2: "",
+      icon2: "",
       day3: "",
       tmax3: "",
       tmin3: "",
+      icon3: "",
       day4: "",
       tmax4: "",
       tmax4: "",
+      icon4: "",
       day5: "",
       tmin5: "",
-      tmax5: ""
+      tmax5: "",
+      icon5: ""
      
     };
 
@@ -65,15 +78,20 @@ export default class ForecastTable extends Component {
       
         let days = [];
         let forecastObject = {};
-    
+        let weatherObject = {};
+
 
         for (let i = 0; i < result.data.list.length; i++) {
           let forecastDate = moment(result.data.list[i].dt_txt).format('YYYY-MM-DD');
-
+          
           if (!forecastObject.hasOwnProperty(forecastDate)) {
             forecastObject[forecastDate] = [result.data.list[i].main];
+            weatherObject[forecastDate] = [result.data.list[i].weather[0].description]
+
            } else {
             forecastObject[forecastDate].push(result.data.list[i].main);
+            weatherObject[forecastDate].push(result.data.list[i].weather[0].description);
+
            } 
         }
 
@@ -101,8 +119,21 @@ export default class ForecastTable extends Component {
           };
 
         }; 
+        //make to take the description more occurrence
+        // for (let z=0 ; z<days.length ; z++) {
+        //   // for(let weather=0; weather<weatherObject[days[z]][4].length; weather++) {
+          
+
+        //   }
+        // }
+
+
+        console.log(weatherObject[days[2]][0]);
+      
         console.log(result);
-        console.log(forecastObject)
+        console.log(result.data.list[0].weather[0].description);
+        console.log(weatherObject);
+        console.log(forecastObject);
         console.log(dailyTemp);
 
         // id: 800 == faSun
@@ -118,6 +149,7 @@ export default class ForecastTable extends Component {
         day2: moment().day(2).locale("en").format("dddd"),
         tmax2: Math.round(dailyTemp[days[1]].temp_max),
         tmin2: Math.round(dailyTemp[days[1]].temp_min),
+        
         day3: moment().day(3).locale("en").format("dddd"),
         tmax3: Math.round(dailyTemp[days[2]].temp_max),
         tmin3: Math.round(dailyTemp[days[2]].temp_min),
@@ -134,7 +166,13 @@ export default class ForecastTable extends Component {
     }).catch(error => {
       console.log(error);
     })
+
+    console.log(icon2);
   }
+
+  // changeIcon() {
+  //   this.title.current.style.icon = ''
+  // }
 
 
   render() {
@@ -158,7 +196,7 @@ export default class ForecastTable extends Component {
             <div className="row-top">{this.state.day2}</div>
             <div className="row-bottom-next-days">
               <strong>{this.state.tmax2} ºC</strong><br></br>{this.state.tmin2} ºC
-              <FontAwesomeIcon icon={faCloud} size="2x" className="weather-icon" />
+              <FontAwesomeIcon icon={this.changeIcon} size="2x" className="weather-icon" />
 
             </div>
           </div>
