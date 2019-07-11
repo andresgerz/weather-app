@@ -172,7 +172,7 @@ export default class ForecastTable extends Component {
       "scattered clouds": faSun,
       "0": faMoon,
       "overcast clouds": faCloud,
-      "3": faCloudRain,
+      "light rain": faCloudRain,
       "broken clouds": faCloudSun,
       "few clouds": faCloudSun,
       "5": faCloudSunRain,
@@ -200,10 +200,13 @@ export default class ForecastTable extends Component {
             <div className="row-top big-box"><p className="float-left ml-2">{this.state.day1Left}</p><p className="float-right mr-2">{this.state.day1Right}</p></div>
             <div className="row-bottom">
               <p>{this.state.name}</p>
-              <h1>{this.state.tmax1} ºC</h1>
-              <p>{this.state.tmin1} ºC</p>
-              <FontAwesomeIcon icon={this.changeIcon(this.state.icon1)} size="2x" className="weather-icon" />
-
+               
+              <div className="temp-now w-50 float-left">{this.state.tmax1}ºC</div>
+                    
+              <div><FontAwesomeIcon icon={this.changeIcon(this.state.icon1)} size="4x" className="weather-icon today-icon" /></div> 
+              <div className="border">
+                asdasd
+              </div> 
             </div>
           </div>
 
@@ -214,7 +217,7 @@ export default class ForecastTable extends Component {
                 <FontAwesomeIcon icon={this.changeIcon(this.state.icon2)} size="2x" className="weather-icon" />
               </div>
               <div>
-                <strong>{this.state.tmax2} ºC</strong><br></br>{this.state.tmin2} ºC
+                <strong>{this.state.tmax2}ºC</strong><br></br>{this.state.tmin2}ºC
               </div>
                           
 
@@ -227,7 +230,7 @@ export default class ForecastTable extends Component {
                 <FontAwesomeIcon icon={this.changeIcon(this.state.icon3)} size="2x" className="weather-icon" />  
               </div>
               <div>
-                <strong>{this.state.tmax3} ºC</strong><br></br>{this.state.tmin3} ºC</div>
+                <strong>{this.state.tmax3}ºC</strong><br></br>{this.state.tmin3}ºC</div>
               </div>
               
               
@@ -241,7 +244,7 @@ export default class ForecastTable extends Component {
                 <FontAwesomeIcon icon={this.changeIcon(this.state.icon4)} size="2x" className="weather-icon" />
               </div>
               <div>
-                <strong>{this.state.tmax4} ºC</strong><br></br>{this.state.tmin4} ºC</div>
+                <strong>{this.state.tmax4}ºC</strong><br></br>{this.state.tmin4}ºC</div>
               </div>            
 
           </div>
@@ -252,8 +255,8 @@ export default class ForecastTable extends Component {
                 <FontAwesomeIcon icon={this.changeIcon(this.state.icon5)} size="2x" className="weather-icon" />
               </div>
               <div>
-                <strong>{this.state.tmax5} ºC</strong><br></br>
-                {this.state.tmin5} ºC
+                <strong>{this.state.tmax5}ºC</strong><br></br>
+                {this.state.tmin5}ºC
               </div>              
             </div>
 

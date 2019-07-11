@@ -26,18 +26,18 @@ export default class Footer extends Component {
   render() {
     return (  
             <div className="footer-wrapper">
-              <Form className="float-left w-50">
+              <Form className="subscribe-email float-left">
                                                     
                 <Form.Control className="display-email" type="email" placeholder="Enter your email to subscribe..." />                                                 
                 <Button className="button-email" variant="primary" type="submit">Subscribe</Button>     
                 
-                <div className="copyright-app"><i>Copyright 2019 Weather App.</i></div>
+                <label className="mt-5"><i>Copyright 2019 Weather App.</i></label>
               </Form>
               
-              <div className="ml-5">
-                <FontAwesomeIcon icon={faInstagram} size="2x" className="weather-icon" /> | |
-                <FontAwesomeIcon icon={faTwitterSquare} size="2x" className="weather-icon" /> | |
-                <FontAwesomeIcon icon={faFacebookSquare} size="2x" className="weather-icon" />
+              <div className="social-icons float-left">
+                <FontAwesomeIcon icon={faInstagram} size="2x" className="weather-icon m-2" /> 
+                <FontAwesomeIcon icon={faTwitterSquare} size="2x" className="weather-icon m-2" /> 
+                <FontAwesomeIcon icon={faFacebookSquare} size="2x" className="weather-icon m-2" />
               </div>
               
             </div>

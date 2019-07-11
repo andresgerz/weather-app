@@ -8,6 +8,13 @@
   position: relative;
 }
 
+.temp-now {
+  font-size: 100px;
+}
+
+.today-icon {
+  
+}
 
 .forecast-wrapper .column:nth-of-type(2n+1) .row-top {
   background-color: #2D303D;
@@ -81,3 +88,4 @@
 .weather-icon {
   color: #24B4DA;
 }
+

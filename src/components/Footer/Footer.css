@@ -5,6 +5,10 @@
 
 }
 
+.subscribe-email {
+  width: 40%;
+}
+
 .display-email {
   float: left;
   height: 56px;
@@ -29,4 +33,8 @@
   right: 1px;
   border-radius: 100px;
   
+}
+
+.social-icons {
+  margin-left: 200px;
 }
