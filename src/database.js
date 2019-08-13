@@ -1,8 +1,13 @@
-const mongoose = require('mongoose');
-const URI = 'mongodb://localhost/weather-app-db';
+// const mongoose = require('mongoose');
+// const URI = process.env.MONGODB_URI;
 
-mongoose.connect(URI)
-  .then(db => console.log('DB is connected'))
-  .catch(err => console.error(err));
+// mongoose.connect(URI, {
+//   useNewUrlParser: true,
+//   useCreateIndex: true
+// });
 
-  module.exports = mongoose;
+// const connection = mongoose.connection;
+
+// connection.once('open', () => {
+//   console.log('DB is connected')
+// });

@@ -34,17 +34,17 @@ export default class NavBarWeb extends Component {
                         </div>
                       </div>
 
-                      <div className="options float-right m-5">
+                      <div className="options float-right">
                         <Navbar collapseOnSelect expand="lg" variant="dark">
                           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                           <Navbar.Collapse id="responsive-navbar-nav">
                             <ButtonToolbar>
                               <Nav className="mr-auto">
-                                <button className="button-home border-primary"><Link className="text-primary mr-1" to="/Home" href="#home">Home</Link></button>  
-                                <button className="buttons"><Link className="text-light mr-1" to="/Maps" href="#maps">Maps</Link></button>  
-                                <button className="buttons"><Link className="text-light mr-1" to="/Alerts" href="#alerts">Alerts</Link></button>  
-                                <button className="buttons"><Link className="text-light mr-1" to="/News" href="#news">News</Link></button>  
-                                <button className="buttons"><Link className="text-light mr-1" to="/Contact" href="#contact">Contact</Link></button>  
+                                <button className="button-home border-primary"><Link className="text-primary mr-5" to="/Home" href="#home">Home</Link></button>  
+                                <button className="buttons"><Link className="text-light mr-5" to="/Maps" href="#maps">Maps</Link></button>  
+                                <button className="buttons"><Link className="text-light mr-5" to="/Alerts" href="#alerts">Alerts</Link></button>  
+                                <button className="buttons"><Link className="text-light mr-5" to="/News" href="#news">News</Link></button>  
+                                <button className="buttons"><Link className="text-light" to="/Contact" href="#contact">Contact</Link></button>  
                                 
                               </Nav>
                             </ButtonToolbar>

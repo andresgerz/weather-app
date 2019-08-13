@@ -1,6 +1,6 @@
 .forecast-wrapper {
   height: 285px;
-  width: 1147px;
+  width: 1140px;
   border-collapse: collapse;
   border-radius: 10px;
   color: #fff;
@@ -12,9 +12,6 @@
   font-size: 100px;
 }
 
-.today-icon {
-  
-}
 
 .forecast-wrapper .column:nth-of-type(2n+1) .row-top {
   background-color: #2D303D;
@@ -45,27 +42,28 @@
 
 
 .forecast-wrapper .column:nth-child(1) {
-  width: 420px;
+  width: 532px;
 }
 
 .forecast-wrapper .column {
-  width: 120px;
+  width: 152px;
 }
 
 .row-top {  
   text-align: center;
   padding-top: 15px;
-  font-size: 16px;
+  font-size: 20px;
   
 }
 
 .row-bottom-next-days {
-  padding-top: 100px;
-  padding-left: 20px;
+  padding-top: 80px;
+  padding-left: 40px;
 }
 
 .row-bottom-next-days strong {
-  font-size: 20px;
+  font-size: 24px;
+  
   
 }
 
