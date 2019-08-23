@@ -9,7 +9,7 @@
 }
 
 .temp-now {
-  font-size: 100px;
+  font-size: 60px;
 }
 
 
@@ -63,14 +63,6 @@
 
 .row-bottom-next-days strong {
   font-size: 24px;
-  
-  
-}
-
-
-.row-bottom > h1 {
-  font-size: 80px;
-  font-weight: bold;
   
   
 }

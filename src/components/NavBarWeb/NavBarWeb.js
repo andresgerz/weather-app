@@ -52,7 +52,7 @@ export default class NavBarWeb extends Component {
                         </Navbar></div>
                     </div>
 
-                    {true && <Redirect to="/Home/Home" />}
+                    {true && <Redirect to="/Home" />}
                   </React.Fragment>
     )
   }

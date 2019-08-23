@@ -35,7 +35,7 @@ export default class Footer extends Component {
               </Form>
               
               <div className="social-icons float-left">
-                <FontAwesomeIcon icon={faInstagram} size="2x" className="weather-icon m-2" /> 
+                <FontAwesomeIcon icon={faInstagram} size="2x" className="weather-icon m-2" />
                 <FontAwesomeIcon icon={faTwitterSquare} size="2x" className="weather-icon m-2" /> 
                 <FontAwesomeIcon icon={faFacebookSquare} size="2x" className="weather-icon m-2" />
               </div>

@@ -53,6 +53,9 @@ export default class ForecastTable extends Component {
       temp1: "",
       icon1: "",
       tmin1: "",
+      humidity1: "",
+      pressure1: "",
+      wind1: [],
       day2: "",
       tmax2: "",
       tmin2: "",
@@ -138,7 +141,7 @@ export default class ForecastTable extends Component {
           console.log(weatherObject);
           console.log(forecastObject);
           console.log(dailyTemp);
-          
+          console.log(result.data);
 
 
         this.setState({
@@ -148,6 +151,9 @@ export default class ForecastTable extends Component {
           day1Left: moment().locale("en").format("dddd"),
           tmax1: Math.round(dailyTemp[days[0]].temp),
           tmin1: Math.round(dailyTemp[days[0]].temp_min),
+          humidity1: result.data.list[0].main["humidity"],
+          pressure1: result.data.list[0].main["pressure"],
+          wind1: result.data.list[0].wind["speed"],
           icon1: weatherObject[days[0]][0],
           day2: moment().day(2).locale("en").format("dddd"),
           tmax2: Math.round(dailyTemp[days[1]].temp_max),
@@ -223,10 +229,16 @@ export default class ForecastTable extends Component {
             <div className="row-bottom">
               <p>{this.state.name}</p>
                
-              <div className="temp-now w-50 float-left">{this.state.tmax1}ºC</div>
-                    
+              <div className="temp-now w-50 float-left">
+               {this.state.tmax1}ºC
+              </div>
+         
               <div><FontAwesomeIcon icon={this.changeIcon(this.state.icon1)} size="5x" className="weather-icon today-icon ml-5 mt-4" /></div> 
-             
+              <div>
+                HR: {this.state.humidity1} %  <br></br>
+                Pressure: {this.state.pressure1} hPa <br></br>
+                Wind: {this.state.wind1} km/h
+              </div>   
             </div>
           </div>
 
