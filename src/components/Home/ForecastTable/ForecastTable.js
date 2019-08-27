@@ -3,7 +3,6 @@ import axios from 'axios';
 import moment from 'moment';
 
 import './ForecastTable.css';
-//import Find from './Find/Find';
 
 import { isArray } from 'util';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -19,6 +18,7 @@ import {
   faCloudMoon,
   faCloudMoonRain,
   faPooStorm,
+  faCloudMeatball
 
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -35,11 +35,9 @@ library.add(
   faCloudMoon,
   faCloudMoonRain,
   faPooStorm,
+  faCloudMeatball
 
 )
-
-
-
 
 
 export default class ForecastTable extends Component {
@@ -75,16 +73,15 @@ export default class ForecastTable extends Component {
       city: ""
      
     };
-
-
-    // this.onChangeCityName = this.onChangeCityName.bind(this);
   }
   
   getForecast() {
-    console.log(this.props.cityID);
-    if(this.props.cityID != null) {
-
-      axios.get("https://api.openweathermap.org/data/2.5/forecast?id=" + this.props.cityID + "&units=metric&appid=6200f7fd2611fa3c695ade64a041d5f7")
+    console.log(this.props.cityCountry);
+    console.log(this.props.cityCountry != null);
+    
+    if(this.props.cityCountry != null) {
+      
+      axios.get("https://api.openweathermap.org/data/2.5/forecast?q=" + this.props.cityCountry + "&units=metric&appid=6200f7fd2611fa3c695ade64a041d5f7")
       .then(
         
         result=>{
@@ -146,7 +143,7 @@ export default class ForecastTable extends Component {
 
         this.setState({
 
-          name: result.data.city.name,
+          name: this.props.cityCountry,
           day1Right: moment().format("DD MMM"),
           day1Left: moment().locale("en").format("dddd"),
           tmax1: Math.round(dailyTemp[days[0]].temp),
@@ -175,6 +172,7 @@ export default class ForecastTable extends Component {
         
       }).catch(error => {
         console.log(error);
+    
       })
 
     }
@@ -185,7 +183,7 @@ export default class ForecastTable extends Component {
   }
 
   componentDidUpdate(previousProps, previousState) {
-    if (previousProps.cityID !== this.props.cityID) {
+    if (previousProps.cityCountry !== this.props.cityCountry) {
       this.getForecast();
     }
   }
@@ -206,14 +204,13 @@ export default class ForecastTable extends Component {
       "7": faCloudShowersHeavy,
       "8": faCloudMoon,
       "9": faCloudMoonRain,
-      "10": faPooStorm
+      "10": faPooStorm,
+      "snow": faCloudMeatball,
+      "light snow": faCloudMeatball
 
     }    
     return iconTable[param]
   }    
-
-
-  
 
 
   render() {

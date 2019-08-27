@@ -11,60 +11,35 @@ export default class Home extends Component {
     super(props);
     
     this.state = {
-      city: '',
-      cityID: 3433955
+      cityCountry: 'Buenos Aires, AR',
     };
 
     this.onCityChange = this.onCityChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
   
   }
  
 
-  onCityChange(cityName) {
-    
-    const cityID = this.findCity(cityName);
+  onCityChange(cityCountry) {
+
+    console.log(cityCountry);
+   
 
     this.setState({
-      city: cityName,
-      cityID: cityID
+      cityCountry: cityCountry
     }); 
   }
 
-
-
-  // every city assign his ID
-  findCity(param) {
-
-    param = param.toLocaleLowerCase();
-
-    const cities = {
-      "buenos aires": 3433955,
-      "bariloche": 7647007,
-      "posadas": 3429886,
-      "resistencia": 3429577,
-      "ushuaia": 3833367,
-      "tokyo": 1850147,
-      "new york": 5128581,
-      "montevideo": 3441575,
-      "rio de janeiro": 3451190,
-      "berlin": 2950159
-    }
-    const city = cities[param]
-    return city
-  }
   
   render() {
-    console.log(this.state.city);
-
+    
     return (
               <div className="App text-white">
                       
                 <div id="background-top"> 
-                  <Find id="find" onCityChange={this.onCityChange} cityID={this.state.cityID} />
+                  <Find id="find" onCityChange={this.onCityChange} cityCountry={this.state.cityCountry} />
                 </div>
                 <div id="background-center">
-                  <ForecastTable id="table" cityID={this.state.cityID} />
+                  <ForecastTable id="table" cityCountry={this.state.cityCountry} />
                   <Maps />
                 </div>
                 <div id="background-bottom">

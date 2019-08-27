@@ -8,7 +8,8 @@ export default class Find extends Component {
     super(props);
     
     this.state = {
-      city: ''
+      cityCountry: '',
+    
     };
     
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,26 +17,28 @@ export default class Find extends Component {
  
   handleSubmit(e) {
     e.preventDefault();
-    console.log(e.currentTarget.city.value);
-    this.props.onCityChange(e.currentTarget.city.value);
+    console.log(e.currentTarget.cityCountry.value);
+    
+    this.props.onCityChange(e.currentTarget.cityCountry.value);
+    
+    
   }
 
 
   render() {
-    console.log(this.state.city);
-    console.log(this.state.cityID);
-
+    console.log(isNaN(this.props.cityCountry));
+    console.log(typeof(this.props.cityCountry));
     return (
       <div>
         <Form onSubmit={this.handleSubmit} id="find-wrapper">
           
-          <Form.Control className="input-find" name="city" placeholder="Find your location..." autoFocus />
+          <Form.Control className="input-find" name="cityCountry" placeholder="Find your location... e.g.: Resistencia, AR" autoFocus />
           <Button className="button-find" variant="primary" type="submit">
             Find
           </Button>
         </Form>
         
-        {isNaN(this.props.cityID) &&
+        {isNaN(this.props.cityCountry) &&
           <div className="w-50 alert alert-warning alertBar" role="alert">
             "Attention! This city don't exit"
           </div>

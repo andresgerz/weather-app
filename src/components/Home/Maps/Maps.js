@@ -43,10 +43,10 @@ export default class Maps extends Component {
                 <h2 className="maps-title">Maps</h2>
                 
                 <div className="maps">
-                  <img width="234.25px" className="rounded" alt="No image" src="https://weather.msfc.nasa.gov/sport/dynamic/goesEast/abi/fullDisk/20190818_222019_sport_goesEast_abi_fullDisk_10p35um.gif" />
-                  <img width="234.25px" className="rounded" alt="No image" src="https://weather.msfc.nasa.gov/sport/dynamic/goesEast/abi/fullDisk/20190818_222019_sport_goesEast_abi_fullDisk_00p64um.gif" />
-                  <img width="234.25px" className="rounded" alt="No image" src="https://weather.msfc.nasa.gov/sport/dynamic/goesEast/abi/fullDisk/20190818_222019_sport_goesEast_abi_fullDisk_06p95um.gif" />
-                  <img className="maps-radars" height="234.25px" className="rounded" alt="No image" src="https://estaticos.smn.gob.ar/vmsr/radar/COMP_ARG_ZH_CMAX_20190817_193000Z.png" />
+                  <img width="234.25px" className="rounded" alt="No image" src="src/images/ch2.gif" />
+                  <img width="234.25px" className="rounded" alt="No image" src="src/images/ch9.gif" />
+                  <img width="234.25px" className="rounded" alt="No image" src="src/images/ch13.gif" />
+                  <img className="maps-radars" height="234.25px" className="rounded" alt="No image" src="src/images/radar.png" />
                 </div>                
               </div>
       
