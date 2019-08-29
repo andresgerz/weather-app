@@ -8,7 +8,7 @@ export default class Find extends Component {
     super(props);
     
     this.state = {
-      cityCountry: '',
+      cityCountry: 'Buenos Aires, AR'
     
     };
     
@@ -23,11 +23,10 @@ export default class Find extends Component {
     
     
   }
-
+ 
 
   render() {
     console.log(isNaN(this.props.cityCountry));
-    console.log(typeof(this.props.cityCountry));
     return (
       <div>
         <Form onSubmit={this.handleSubmit} id="find-wrapper">
@@ -37,13 +36,13 @@ export default class Find extends Component {
             Find
           </Button>
         </Form>
-        
-        {isNaN(this.props.cityCountry) &&
+        <div>
+        { this.props.errorStatus &&
           <div className="w-50 alert alert-warning alertBar" role="alert">
             "Attention! This city don't exit"
           </div>
         } 
-            
+        </div>    
       </div>
 
     );

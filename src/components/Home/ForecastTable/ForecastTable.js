@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import moment from 'moment';
 
 import './ForecastTable.css';
 
@@ -45,148 +43,20 @@ export default class ForecastTable extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      name: [],
-      day1: "",
-      temp1: "",
-      icon1: "",
-      tmin1: "",
-      humidity1: "",
-      pressure1: "",
-      wind1: [],
-      day2: "",
-      tmax2: "",
-      tmin2: "",
-      icon2: "",
-      day3: "",
-      tmax3: "",
-      tmin3: "",
-      icon3: "",
-      day4: "",
-      tmax4: "",
-      tmax4: "",
-      icon4: "",
-      day5: "",
-      tmin5: "",
-      tmax5: "",
-      icon5: "",
-      city: ""
-     
-    };
+    
   }
   
-  getForecast() {
-    console.log(this.props.cityCountry);
-    console.log(this.props.cityCountry != null);
-    
-    if(this.props.cityCountry != null) {
-      
-      axios.get("https://api.openweathermap.org/data/2.5/forecast?q=" + this.props.cityCountry + "&units=metric&appid=6200f7fd2611fa3c695ade64a041d5f7")
-      .then(
-        
-        result=>{
-        
-          let days = [];
-          let forecastObject = {};
-          let weatherObject = {};
+  
+  // componentDidMount() {
+  //   this.getForecast();
+  // }
 
 
-          for (let i = 0; i < result.data.list.length; i++) {
-            let forecastDate = moment(result.data.list[i].dt_txt).format('YYYY-MM-DD');
-            
-            if (!forecastObject.hasOwnProperty(forecastDate)) {
-              forecastObject[forecastDate] = [result.data.list[i].main];
-              weatherObject[forecastDate] = [result.data.list[i].weather[0].description]
-
-            } else {
-              forecastObject[forecastDate].push(result.data.list[i].main);
-              weatherObject[forecastDate].push(result.data.list[i].weather[0].description);
-
-            } 
-          }
-
-
-          let dailyTemp = {};
-          days = Object.keys(forecastObject);
-
-          for(let idays=0; idays < days.length; idays++) {
-            for(let ihours=0; ihours < forecastObject[days[idays]].length; ihours++) {
-            
-              let currentDateValues = forecastObject[days[idays]][ihours];
-              // Chequeo si esta key no esta seteada, la inicializo con el objeto que tenga el array en esta posicion
-            if (!dailyTemp.hasOwnProperty(days[idays])) {           
-                dailyTemp[days[idays]] = currentDateValues;
-                continue;
-                } 
-              else {
-              if (dailyTemp[days[idays]].temp_max < currentDateValues.temp_max) {
-                  dailyTemp[days[idays]].temp_max = currentDateValues.temp_max;
-                }
-              if (dailyTemp[days[idays]].temp_min > currentDateValues.temp_min) {
-                  dailyTemp[days[idays]].temp_min = currentDateValues.temp_min;
-                }            
-              }
-            };
-
-          }; 
-      
-
-          console.log(weatherObject[days[2]][0]);
-        
-          console.log(result);
-          console.log(result.data.list[0].weather[0].description);
-          console.log(weatherObject);
-          console.log(forecastObject);
-          console.log(dailyTemp);
-          console.log(result.data);
-
-
-        this.setState({
-
-          name: this.props.cityCountry,
-          day1Right: moment().format("DD MMM"),
-          day1Left: moment().locale("en").format("dddd"),
-          tmax1: Math.round(dailyTemp[days[0]].temp),
-          tmin1: Math.round(dailyTemp[days[0]].temp_min),
-          humidity1: result.data.list[0].main["humidity"],
-          pressure1: result.data.list[0].main["pressure"],
-          wind1: result.data.list[0].wind["speed"],
-          icon1: weatherObject[days[0]][0],
-          day2: moment().day(2).locale("en").format("dddd"),
-          tmax2: Math.round(dailyTemp[days[1]].temp_max),
-          tmin2: Math.round(dailyTemp[days[1]].temp_min),
-          icon2: weatherObject[days[1]][4],
-          day3: moment().day(3).locale("en").format("dddd"),
-          tmax3: Math.round(dailyTemp[days[2]].temp_max),
-          tmin3: Math.round(dailyTemp[days[2]].temp_min),
-          icon3: weatherObject[days[2]][4],
-          day4: moment().day(4).locale("en").format("dddd"),
-          tmax4: Math.round(dailyTemp[days[3]].temp_max),
-          tmin4: Math.round(dailyTemp[days[3]].temp_min),
-          icon4: weatherObject[days[3]][4],
-          day5: moment().day(5).locale("en").format("dddd"),
-          tmax5: Math.round(dailyTemp[days[4]].temp_max),
-          tmin5: Math.round(dailyTemp[days[4]].temp_min),
-          icon5: weatherObject[days[4]][0]
-        });
-        
-      }).catch(error => {
-        console.log(error);
-    
-      })
-
-    }
-  }
-
-  componentDidMount() {
-    this.getForecast();
-  }
-
-  componentDidUpdate(previousProps, previousState) {
-    if (previousProps.cityCountry !== this.props.cityCountry) {
-      this.getForecast();
-    }
-  }
+  // componentDidUpdate(previousProps, previousState) {
+  //   if (previousProps.cityCountry !== this.props.cityCountry) {
+  //     this.getForecast();
+  //   }
+  // }
 
 
   changeIcon(param) {
@@ -214,7 +84,7 @@ export default class ForecastTable extends Component {
 
 
   render() {
-    console.log(this.state.icon5);
+    console.log(this.props.cityForecast.icon5);
     
     return (
       
@@ -222,70 +92,70 @@ export default class ForecastTable extends Component {
         <div className="row forecast-days">
 
           <div className="column">
-            <div className="row-top big-box"><p className="float-left ml-2">{this.state.day1Left}</p><p className="float-right mr-2">{this.state.day1Right}</p></div>
+            <div className="row-top big-box"><p className="float-left ml-2">{this.props.cityForecast.day1Left}</p><p className="float-right mr-2">{this.props.cityForecast.day1Right}</p></div>
             <div className="row-bottom">
-              <p>{this.state.name}</p>
+              <p>{this.props.cityForecast.name}</p>
                
               <div className="temp-now w-50 float-left">
-               {this.state.tmax1}ºC
+               {this.props.cityForecast.tmax1}ºC
               </div>
          
-              <div><FontAwesomeIcon icon={this.changeIcon(this.state.icon1)} size="5x" className="weather-icon today-icon ml-5 mt-4" /></div> 
+              <div><FontAwesomeIcon icon={this.changeIcon(this.props.cityForecast.icon1)} size="5x" className="weather-icon today-icon ml-5 mt-4" /></div> 
               <div>
-                HR: {this.state.humidity1} %  <br></br>
-                Pressure: {this.state.pressure1} hPa <br></br>
-                Wind: {this.state.wind1} km/h
+                HR: {this.props.cityForecast.humidity1} %  <br></br>
+                Pressure: {this.props.cityForecast.pressure1} hPa <br></br>
+                Wind: {this.props.cityForecast.wind1} km/h
               </div>   
             </div>
           </div>
 
           <div className="column">
-            <div className="row-top">{this.state.day2}</div>
+            <div className="row-top">{this.props.cityForecast.day2}</div>
             <div className="row-bottom-next-days">
               <div>
-                <FontAwesomeIcon icon={this.changeIcon(this.state.icon2)} size="3x" className="weather-icon" />
+                <FontAwesomeIcon icon={this.changeIcon(this.props.cityForecast.icon2)} size="3x" className="weather-icon" />
               </div>
               <div>
-                <strong>{this.state.tmax2}ºC</strong><br></br>{this.state.tmin2}ºC
+                <strong>{this.props.cityForecast.tmax2}ºC</strong><br></br>{this.props.cityForecast.tmin2}ºC
               </div>
                           
 
             </div>
           </div>
           <div className="column">
-            <div className="row-top">{this.state.day3}</div>
+            <div className="row-top">{this.props.cityForecast.day3}</div>
             <div className="row-bottom-next-days">
               <div>
-                <FontAwesomeIcon icon={this.changeIcon(this.state.icon3)} size="3x" className="weather-icon" />  
+                <FontAwesomeIcon icon={this.changeIcon(this.props.cityForecast.icon3)} size="3x" className="weather-icon" />  
               </div>
               <div>
-                <strong>{this.state.tmax3}ºC</strong><br></br>{this.state.tmin3}ºC</div>
+                <strong>{this.props.cityForecast.tmax3}ºC</strong><br></br>{this.props.cityForecast.tmin3}ºC</div>
               </div>
               
               
 
           </div>
           <div className="column">
-            <div className="row-top">{this.state.day4}</div>
+            <div className="row-top">{this.props.cityForecast.day4}</div>
 
             <div className="row-bottom-next-days">
               <div>
-                <FontAwesomeIcon icon={this.changeIcon(this.state.icon4)} size="3x" className="weather-icon" />
+                <FontAwesomeIcon icon={this.changeIcon(this.props.cityForecast.icon4)} size="3x" className="weather-icon" />
               </div>
               <div>
-                <strong>{this.state.tmax4}ºC</strong><br></br>{this.state.tmin4}ºC</div>
+                <strong>{this.props.cityForecast.tmax4}ºC</strong><br></br>{this.props.cityForecast.tmin4}ºC</div>
               </div>            
 
           </div>
           <div className="column">
-            <div className="row-top">{this.state.day5}</div>
+            <div className="row-top">{this.props.cityForecast.day5}</div>
             <div className="row-bottom-next-days">
               <div>
-                <FontAwesomeIcon icon={this.changeIcon(this.state.icon5)} size="3x" className="weather-icon" />
+                <FontAwesomeIcon icon={this.changeIcon(this.props.cityForecast.icon5)} size="3x" className="weather-icon" />
               </div>
               <div>
-                <strong>{this.state.tmax5}ºC</strong><br></br>
-                {this.state.tmin5}ºC
+                <strong>{this.props.cityForecast.tmax5}ºC</strong><br></br>
+                {this.props.cityForecast.tmin5}ºC
               </div>              
             </div>
 
