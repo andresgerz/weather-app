@@ -21,9 +21,8 @@ library.add(
 
 )
 
-export default class Footer extends Component {
+export default function Footer(props) {
   
-  render() {
     return (  
             <div className="footer-wrapper">
               <Form className="subscribe-email float-left">
@@ -44,6 +43,6 @@ export default class Footer extends Component {
 
       
     );
-  }
+  
 }
 

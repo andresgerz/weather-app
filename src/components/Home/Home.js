@@ -13,8 +13,8 @@ export default class Home extends Component {
     super(props);
     
     this.state = {
-      cityCountry: 'Buenos Aires, AR',
       errorStatus: false, 
+      cityCountry: "Buenos Aires, AR",
       cityForecast: {
         name: "Buenos Aires, AR",
         day1: "",
@@ -181,9 +181,9 @@ export default class Home extends Component {
 
     }
   }
+    render() {
 
-  render() {
-    return (
+      return (
               <div className="App text-white">
                       
                 <div id="background-top"> 
@@ -204,7 +204,7 @@ export default class Home extends Component {
                   <News />
                 </div>
               </div>
-    );
-  }
+    )};
+  
 }
 

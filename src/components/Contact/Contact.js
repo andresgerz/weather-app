@@ -1,28 +1,25 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Col, InputGroup, Button, Row } from 'react-bootstrap';
 
-export default class Contact extends Component {
+export default function Contact(props) {
  
-  constructor(...args) {
-    super(...args);
-
-    this.state = { validated: false };
-  }
-
-  handleSubmit(event) {
-    const form = event.currentTarget;
+  const [validated, useValidated] = useState(false);
+  
+useEffect(() => {
+  function handleSubmit(e) {
+    const form = e.currentTarget;
     if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
+      e.preventDefault();
+      e.stopPropagation();
     }
     this.setState({ validated: true });
   }
-
-  render() {
-    const { validated } = this.state;
+});
+  
+    
     return (  <div>
                 <div className="m-5">
-                  <h1>You can suscribe in own website</h1>
+                  <h1>You can suscribe to our website</h1>
                 </div>
 
                 <Form
@@ -100,7 +97,7 @@ export default class Contact extends Component {
                     <Form.Group as={Col} md="3" controlId="validationCustom05">
         
                       <Form.Label>Country</Form.Label>
-                      <select class="custom-select">
+                      <select className="custom-select">
                         <option selected>Open this select menu</option>
                         <option value="1">Argentina</option>
                         <option value="2">Bolivia</option>
@@ -125,7 +122,7 @@ export default class Contact extends Component {
                   </Form.Row>
                   
                   <Form.Group as={Col} md="4" controlId="validationCustom05">
-                    <Form.Label>What king of information would you like to get by email?</Form.Label>
+                    <Form.Label>What kind of information would you like to get by email?</Form.Label>
                     {['checkbox'].map(type => (
                       <div key={`custom-${type}`} className="mb-3">
                         <Form.Check 
@@ -163,5 +160,5 @@ export default class Contact extends Component {
                 </Form>
               </div>
     );
-  }
+  
 }

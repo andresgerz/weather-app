@@ -3,9 +3,8 @@ import React, { Component } from 'react';
 import './News.css';
 
 
-export default class News extends Component {
+export default function News(props) {
   
-  render() {
     return (  
       <div className="container news-wrapper h-25">
         <section className="dates float-left text-primary">06.10</section>
@@ -30,6 +29,6 @@ export default class News extends Component {
       </div>
       
     );
-  }
+  
 }
 

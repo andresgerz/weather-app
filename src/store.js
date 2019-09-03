@@ -1,7 +1,17 @@
 import { createStore } from 'redux';
 
-const reducer = (state, action) => {
+const initialState = {
+  city: [{
+  cityCountry: 'Buenos Aires, AR',
+  id: 1
+  }],
+  errorStatus: false
+  
+}
+
+const reducer = (state = initialState, action) => {
   return state;
 }
+
 
 export default createStore(reducer);

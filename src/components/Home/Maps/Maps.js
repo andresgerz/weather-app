@@ -1,43 +1,33 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './Maps.css';
 var moment = require('moment');
 
-const axios = require('axios');
-
-export default class Maps extends Component {
+export default function Maps(props) {
   
-  constructor(props) {
-    super(props);
+  const [timer, setTimer] = useState("")
 
-    this.state = {
-      timer: ""
+  useEffect(() =>{    
+    function dateImages() {
+        
+      let timer = 0;
+      // start timer
+      let todayDate = moment().format("YYYYMMDD");
+      this.todayTime = setInterval(
+        () => { 
+          let timer = moment().format("HHmmss") 
+
+
+          this.setState = ({
+            timer: timer
+          });
+
+        }, 1000
+      )
+      //console.log(todayDate + "_");
     }
-  }
+  });
   
-  dateImages() {
-      
-    let timer = 0;
-    // start timer
-    let todayDate = moment().format("YYYYMMDD");
-    this.todayTime = setInterval(
-      () => { 
-        let timer = moment().format("HHmmss") 
-
-
-        this.setState = ({
-          timer: timer
-        });
-
-      }, 1000
-    )
-    //console.log(todayDate + "_");
-  }
-  
-  
-  render() {
-    this.dateImages();
-    console.log(this.state.timer);
     return (  
               <div className="maps-wrapper">
                 <h2 className="maps-title">Maps</h2>
@@ -51,6 +41,6 @@ export default class Maps extends Component {
               </div>
       
     );
-  }
+  
 }
 

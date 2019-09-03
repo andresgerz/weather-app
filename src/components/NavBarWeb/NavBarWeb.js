@@ -18,9 +18,8 @@ library.add(
 
 )
 
-export default class NavBarWeb extends Component {
+export default function NavBarWeb(props) {
   
-  render() {
         return (  <React.Fragment>
                     <div id="navbar-wrapper" className="w-100">
 
@@ -55,6 +54,6 @@ export default class NavBarWeb extends Component {
                     {true && <Redirect to="/Home" />}
                   </React.Fragment>
     )
-  }
+  
 }
 

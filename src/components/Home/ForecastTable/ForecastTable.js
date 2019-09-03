@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import { connect } from 'react-redux';
 
 import './ForecastTable.css';
 
@@ -38,12 +39,10 @@ library.add(
 )
 
 
-export default class ForecastTable extends Component {
+ export default class ForecastTable extends Component {
   
   constructor(props) {
     super(props);
-
-    
   }
   
   
@@ -83,10 +82,10 @@ export default class ForecastTable extends Component {
   }    
 
 
-  render() {
-    console.log(this.props.cityForecast.icon5);
-    
-    return (
+   
+    render() { 
+      
+      return (
       
       <div className="container forecast-wrapper">
         <div className="row forecast-days">
@@ -163,7 +162,15 @@ export default class ForecastTable extends Component {
         
         </div>
       </div>   
-    );
-  }
+    )};
+  
 }
 
+// const mapStateToProps = state => ({
+//     city: state.city
+  
+// });
+
+// const mapDispatchToProps = displatch => ({})
+
+// export default connect(mapStateToProps, mapDispatchToProps)(ForecastTable);
