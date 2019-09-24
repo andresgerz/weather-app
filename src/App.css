@@ -1,13 +1,3 @@
-.App {
-  
-
-}
-
-#navbar-web {
-  
-  
-}
-
 .container.pos {
   justify-content: center;
   position: relative;
@@ -19,10 +9,8 @@
 }
 
 #table {
-  
   position: absolute;
 }
-
 
 #background-top {
   background-color: #585B6D;
@@ -32,11 +20,9 @@
 #background-center {
   background-color: #1D202B;
   height: 685.5px;
-
 }
 
 #background-bottom {
   background-color: #262936;
   height: 486px;
-  
 }

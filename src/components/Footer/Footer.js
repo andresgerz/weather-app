@@ -4,6 +4,7 @@ import { Form, Button } from 'react-bootstrap';
 // Styles
 import './Footer.css';
 
+// I import the Font Awesome icons
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import {
@@ -18,8 +19,8 @@ library.add(
   faInstagram,
   faFacebookSquare,
   faTwitterSquare
-
 )
+
 
 export default function Footer(props) {
   
@@ -40,9 +41,5 @@ export default function Footer(props) {
               </div>
               
             </div>
-
-      
     );
-  
 }
-

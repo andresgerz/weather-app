@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-
-import store from './store';
 
 // Components
 import Home from './components/Home/Home';
@@ -16,31 +13,28 @@ import Footer from './components/Footer/Footer';
 // Styles
 import './App.css';
 
+
 export default function App(props) {
        
-    return  <Provider store={store}>
+    return  <div>
               <Router>
                 
-                <div className="App text-white">
-                          
-                <NavBarWeb id="navbar-web" />
-                <div>
-              
-                  <Route path="/Home" component={Home} />
-                  <Route path="/Maps" component={Maps} />
-                  <Route path="/Alerts" component={Alerts} />
-                  <Route path="/News" component={News} />
-                  <Route path="/Contact" component={Contact} />
-                  <div id="background-bottom">
-                  
-                  <Footer />
+                <div className="App text-white">    
+                  <NavBarWeb id="navbar-web" />
+
+                  <div>
+                    <Route path="/Home" component={Home} />
+                    <Route path="/Maps" component={Maps} />
+                    <Route path="/Alerts" component={Alerts} />
+                    <Route path="/News" component={News} />
+                    <Route path="/Contact" component={Contact} />
+                    <div id="background-bottom">
+                      <Footer />
+                    </div>
                   </div>
-                </div>
               
                 </div>
           
               </Router>
-            </Provider>
-  
+            </div>
 }
-

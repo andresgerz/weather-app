@@ -8,11 +8,9 @@
 #find-wrapper .input-find {
   float: left;
   height: 56px;
-  
   border-radius: 100px;
   text-indent: 25px;
   background-color: #1D202B;
-
 }
 
 #find-wrapper .button-find {
@@ -26,7 +24,6 @@
   background-color: #009AD8;
 }
 
-.alertBar {
-  margin: -60px 0 0 300px;
-  
+.alert-bar {
+  margin: -8px 0 0 320px;
 }

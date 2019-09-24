@@ -1,7 +1,7 @@
 .maps-wrapper {
   width: 1027;
   margin-left: 380px;
-  
+  height: 800px;
 }
 
 .maps img {
@@ -13,7 +13,6 @@
 }
 
 .maps-radars {
-  
   background: black;
   margin: 0 48.36px;
 }

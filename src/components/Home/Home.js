@@ -7,19 +7,21 @@ import ForecastTable from './ForecastTable/ForecastTable';
 import Maps from './Maps/Maps';
 import News from './News/News';
 
+
 export default class Home extends Component {
   
   constructor(props) {
-    super(props);
+  super(props);
+ 
     
     this.state = {
       errorStatus: false, 
-      cityCountry: "Buenos Aires, AR",
       cityForecast: {
         name: "Buenos Aires, AR",
         day1: "",
         temp1: "",
         icon1: "",
+        tmax: "",
         tmin1: "",
         humidity1: "",
         pressure1: "",
@@ -41,25 +43,19 @@ export default class Home extends Component {
         tmax5: "",
         icon5: "",
         city: ""
-       
       }
-    };
-
-    this.onCityChange = this.onCityChange.bind(this);
-  
-  }
+     };
+     this.onCityChange = this.onCityChange.bind(this);
+    }
  
-
+    
   onCityChange(cityCountry) {
-
-    console.log(cityCountry);  
-
+    
     this.setState({
       cityCountry: cityCountry
     }); 
-
+    
     this.getForecast();
-
   }
 
 
@@ -69,10 +65,9 @@ export default class Home extends Component {
   
 
   getForecast() {
-    console.log(this.state.cityCountry);
-    console.log(this.state.cityCountry != null);
+
     if(this.state.cityCountry != null) {
-      
+
       axios.get("https://api.openweathermap.org/data/2.5/forecast?q=" + this.state.cityCountry + "&units=metric&appid=6200f7fd2611fa3c695ade64a041d5f7")
       .then(
         
@@ -80,7 +75,7 @@ export default class Home extends Component {
         
           this.setState({
             errorStatus: false
-          })
+          });
 
 
           let days = [];
@@ -128,15 +123,6 @@ export default class Home extends Component {
           }; 
       
 
-          console.log(weatherObject[days[2]][0]);
-        
-          console.log(result);
-          console.log(result.data.list[0].weather[0].description);
-          console.log(weatherObject);
-          console.log(forecastObject);
-          console.log(dailyTemp);
-          console.log(result.data);
-
         let currentForecast = {
           name: this.state.cityCountry,
           day1Right: moment().format("DD MMM"),
@@ -167,44 +153,41 @@ export default class Home extends Component {
 
         this.setState({
           cityForecast: currentForecast
-          
         });
         
       }).catch(error => {
+        
+        console.log(error);
         this.setState({
           errorStatus: true
-        })
-        console.log(this.state.errorStatus);
-
-                            
+        })      
       })
-
     }
   }
-    render() {
+    
+  render() {
+      return (  <div className="App text-white">
+                        
+                  <div id="background-top"> 
+                    <Find id="find" 
+                      onCityChange={this.onCityChange} 
+                      cityCountry={this.state.cityCountry}
+                      cityForecast={this.state.cityForecast}
+                      errorStatus={this.state.errorStatus}
+                      />
 
-      return (
-              <div className="App text-white">
-                      
-                <div id="background-top"> 
-                  <Find id="find" 
-                    onCityChange={this.onCityChange} 
-                    cityCountry={this.state.cityCountry}
-                    cityForecast={this.state.cityForecast}
-                    errorStatus={this.state.errorStatus} />
-
+                  </div>
+                  <div id="background-center">
+                    <ForecastTable id="table" 
+                      cityCountry={this.state.cityCountry} 
+                      cityForecast={this.state.cityForecast} 
+                      />
+                    <Maps />
+                  </div>
+                  <div id="background-bottom">
+                    <News />
+                  </div>
                 </div>
-                <div id="background-center">
-                  <ForecastTable id="table" 
-                    cityCountry={this.state.cityCountry} 
-                    cityForecast={this.state.cityForecast} />
-                  <Maps />
-                </div>
-                <div id="background-bottom">
-                  <News />
-                </div>
-              </div>
-    )};
-  
+    );
+  }
 }
-

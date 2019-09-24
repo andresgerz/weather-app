@@ -15,17 +15,33 @@
   border: #1D202B;
 }
 
-
 .website-name {
-  margin: 30px 0 0 400px;
+  margin: 30px auto;
+  width: 260px;
+  position: absolute;
+  right: 1240px;
 }
 
+@media (max-width: 1700px) {
+  .website-name {
+    margin: 30px auto;
+    position: absolute;
+    left: 260px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .website-name {
+    margin: 30px auto;
+    position: absolute;
+    left: 20px;
+  }
+}
 
 .weather-app {
   float: left;
   height: 100%;
   width: 49%;
-
 }
 
 .weather-icon-app {
@@ -36,5 +52,7 @@
 }
 
 .options {
-  margin: 42px 370px 42px 0;
+  margin: 42px auto;
+  position: absolute;
+  right: 370px;
 }

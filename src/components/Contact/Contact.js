@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Col, InputGroup, Button, Row } from 'react-bootstrap';
 
+// Hook component
 export default function Contact(props) {
  
   const [validated, useValidated] = useState(false);
@@ -59,7 +60,6 @@ useEffect(() => {
                       />
                       <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
-             
                   </Form.Row>
                   
                   <Form.Row>
@@ -143,10 +143,9 @@ useEffect(() => {
                           id={`3-${type}`}
                           label={`News`}
                         />
-                  
-                      
                       </div>
                     ))}
+                    
                 </Form.Group>
                   <Form.Group>
                     <Form.Check
