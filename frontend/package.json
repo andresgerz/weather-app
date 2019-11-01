@@ -1,6 +1,7 @@
 {
   "name": "weather-app",
   "version": "1.0.0",
+  "homepage": "https://andresgerz.github.io/weather-app/frontend/",
   "description": "Describe weather-app here",
   "private": true,
   "scripts": {
@@ -9,7 +10,9 @@
     "start": "nwb serve-react-app",
     "test": "nwb test-react",
     "test:coverage": "nwb test-react --coverage",
-    "test:watch": "nwb test-react --server"
+    "test:watch": "nwb test-react --server",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
@@ -38,6 +41,7 @@
   "devDependencies": {
     "eslint-plugin-react-hooks": "^2.0.1",
     "file-loader": "^4.2.0",
+    "gh-pages": "^2.1.1",
     "html-webpack-plugin": "^3.2.0",
     "nodemon": "^1.19.1",
     "nwb": "0.23.x",

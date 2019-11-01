@@ -1,11 +1,12 @@
-version: '3'
+version: '3.7'
+
 services:
   app:
     container_name: weather-app2
     restart: always
     build: .
     ports:
-      - '80:3000'
+      - '3000:3000'
     links:
       - mongo
   mongo:
@@ -14,4 +15,4 @@ services:
     ports:
       - '27017:27017'
     volumes: 
-      - ~/project/weather-app/frontend:/data/db
+      - ~/projects/weather-app/frontend:/data/db

@@ -20,7 +20,7 @@ library.add(
 export default function NavBarWeb(props) {
   
         return (  <React.Fragment>
-                    <div id="navbar-wrapper" className="w-100">
+                    <div id="navbar-wrapper" className="w-100" className="container-fluid">
 
                       <div className="website-name float-left text-light">
                         <div className="weather-icon-nav">

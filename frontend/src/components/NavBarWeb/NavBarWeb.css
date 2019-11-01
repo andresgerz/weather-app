@@ -22,20 +22,70 @@
   right: 1240px;
 }
 
-@media (max-width: 1700px) {
+@media (max-width: 75em) {
   .website-name {
-    margin: 30px auto;
-    position: absolute;
-    left: 260px;
+    left: 200px;
   }
+
+  .options {
+  right: 200px;
+  }
+
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 64em) {
   .website-name {
-    margin: 30px auto;
-    position: absolute;
-    left: 20px;
+    left: 200px;
   }
+
+  .options {
+  right: 200px;
+  }
+
+}
+
+@media (max-width: 48em) {
+  .website-name {
+    left: 150px;
+  }
+
+  .options {
+  right: 150px;
+  }
+
+}
+
+@media (max-width: 37.5em) {
+  .website-name {
+    left: 100px;
+  }
+
+  .options {
+  right: 100px;
+  }
+
+}
+
+@media (max-width: 30em) {
+  .website-name {
+    left: 50px;
+  }
+
+  .options {
+  right: 50px;
+  }
+
+}
+
+@media (max-width: 20em) {
+  .website-name {
+    left: 25px;
+  }
+
+  .options {
+  right: 35px;
+  }
+
 }
 
 .weather-app {
@@ -54,5 +104,4 @@
 .options {
   margin: 42px auto;
   position: absolute;
-  right: 370px;
 }

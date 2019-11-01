@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
 
 // Styles
 import './Footer.css';
@@ -24,22 +25,24 @@ library.add(
 
 export default function Footer(props) {
   
-    return (  
-            <div className="footer-wrapper">
-              <Form className="subscribe-email float-left">
-                                                    
-                <Form.Control className="display-email" type="email" placeholder="Enter your email to subscribe..." />                                                 
-                <Button className="button-email" variant="primary" type="submit">Subscribe</Button>     
+    return (
+            <Container>
+              <div className="footer-wrapper">
+                <Form className="subscribe-email float-left">
+                                                      
+                  <Form.Control className="display-email" type="email" placeholder="Enter your email to subscribe..." />                                                 
+                  <Button className="button-email" variant="primary" type="submit">Subscribe</Button>     
+                  
+                  <label className="mt-5"><i>Copyright 2019 Weather App.</i></label>
+                </Form>
                 
-                <label className="mt-5"><i>Copyright 2019 Weather App.</i></label>
-              </Form>
-              
-              <div className="social-icons float-left">
-                <FontAwesomeIcon icon={faInstagram} size="2x" className="weather-icon m-2" />
-                <FontAwesomeIcon icon={faTwitterSquare} size="2x" className="weather-icon m-2" /> 
-                <FontAwesomeIcon icon={faFacebookSquare} size="2x" className="weather-icon m-2" />
+                <div className="social-icons float-left">
+                  <FontAwesomeIcon icon={faInstagram} size="2x" className="weather-icon m-2" />
+                  <FontAwesomeIcon icon={faTwitterSquare} size="2x" className="weather-icon m-2" /> 
+                  <FontAwesomeIcon icon={faFacebookSquare} size="2x" className="weather-icon m-2" />
+                </div>
+                
               </div>
-              
-            </div>
+            </Container>  
     );
 }
