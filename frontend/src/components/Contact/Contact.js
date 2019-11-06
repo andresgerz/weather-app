@@ -1,31 +1,82 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import { Form, Col, InputGroup, Button, Row } from 'react-bootstrap';
+import axios from 'axios';
 
 // Hook component
-export default function Contact(props) {
+export default class Contact extends Component {
  
-  const [validated, useValidated] = useState(false);
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      validated: false,
+      firstname: '',
+      lastname: '',
+      users: []
+    }
+  }
+
+
+  componentDidMount() {
+    this.getUsers();
+  }
+
+
+  getUsers = async () => {
+    const res = await axios.get('http://localhost:4000/api/users');
+
+    this.setState({
+      users: res.data
+    });
+  }
+
   
-useEffect(() => {
-  function handleSubmit(e) {
+  handleSubmit = async (e) => {
+    
+    e.persist();
     const form = e.currentTarget;
+    await axios.post('http://localhost:4000/api/users', {
+      firstname: this.state.firstname,
+      lastname: this. state.lastname
+    });
+    this.setState({firstname: '', lastname: ''});
+    this.getUsers();
+
     if (form.checkValidity() === false) {
       e.preventDefault();
       e.stopPropagation();
     }
     this.setState({ validated: true });
+  };
+
+  onChange = e => {
+    const { name, value } = e.target;
+
+
+    this.setState({
+      [name]: value
+    })
   }
-});
-  
-    
-    return (  <div>
+
+
+  /* componentWillUnmount() {
+    this.setState({
+      validated: false
+    });
+  } */
+
+
+
+   render() { 
+
+      return (<div>
                 <div className="m-5">
                   <h1>You can suscribe to our website</h1>
                 </div>
 
                 <Form
                   noValidate
-                  validated={validated}
+                  validated={this.state.validated}
                   onSubmit={e => this.handleSubmit(e)}
                   className="w-75 m-auto p-5"
                 >
@@ -36,7 +87,9 @@ useEffect(() => {
                         required
                         type="text"
                         placeholder="First name"
-                        defaultValue="Mark"
+                        onChange={this.onChange}
+                        name="firstname"
+                        value={this.state.firstname}
                       />
                       <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
@@ -46,7 +99,9 @@ useEffect(() => {
                         required
                         type="text"
                         placeholder="Surname"
-                        defaultValue="Smith"
+                        onChange={this.onChange}
+                        name="lastname"
+                        value={this.state.lastname}
                       />
                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                       </Form.Group>
@@ -98,7 +153,7 @@ useEffect(() => {
         
                       <Form.Label>Country</Form.Label>
                       <select className="custom-select">
-                        <option selected>Open this select menu</option>
+                        <option >Open select menu</option>
                         <option value="1">Argentina</option>
                         <option value="2">Bolivia</option>
                         <option value="3">Brasil</option>
@@ -116,7 +171,7 @@ useEffect(() => {
                   <Form.Row>
                     <Form.Group as={Col} md="5" controlId="formGridEmail">
                       <Form.Label>Email</Form.Label>
-                      <Form.Control type="email" placeholder="Enter email" />
+                      <Form.Control type="email" placeholder="Enter email" required/>
                     </Form.Group>
                     
                   </Form.Row>
@@ -160,4 +215,5 @@ useEffect(() => {
               </div>
     );
   
+}
 }

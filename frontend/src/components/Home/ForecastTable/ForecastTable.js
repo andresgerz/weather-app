@@ -69,7 +69,6 @@ library.add(
 
 
     render() { 
-      
       return (  <div className="container forecast-wrapper">
                   <div className="row forecast-days">
 
