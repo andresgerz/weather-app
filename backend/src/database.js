@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const URI = process.env.MONGODB_URI
   ? process.env.MONGODB_URI
-  : 'mongodb://localhost/weather-app-db';
+  : 'mongodb://localhost/weather-app-dbtest';
 
 
 mongoose.connect(URI, {

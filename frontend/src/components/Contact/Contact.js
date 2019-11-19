@@ -12,6 +12,13 @@ export default class Contact extends Component {
       validated: false,
       firstname: '',
       lastname: '',
+      phone: 0,
+      birth: '',
+      address: '',
+      city: '',
+      state: '',
+      country: '',
+      email: '',
       users: []
     }
   }
@@ -35,11 +42,30 @@ export default class Contact extends Component {
     
     e.persist();
     const form = e.currentTarget;
+    
     await axios.post('http://localhost:4000/api/users', {
       firstname: this.state.firstname,
-      lastname: this. state.lastname
+      lastname: this.state.lastname,
+      phone: this.state.phone,
+      birth: this.state.birth,
+      address: this.state.address,
+      city: this.state.city,
+      state: this.state.state,
+      country: this.state.country,
+      email: this.state.email
     });
-    this.setState({firstname: '', lastname: ''});
+
+    this.setState({
+      firstname: '', 
+      lastname: '', 
+      phone: 0,
+      birth: '',
+      address: '',
+      city: '',
+      state: '',
+      country: '',
+      email: ''
+    });
     this.getUsers();
 
     if (form.checkValidity() === false) {
@@ -111,7 +137,9 @@ export default class Contact extends Component {
                         required
                         type="number"
                         placeholder="Phone"
-                        defaultValue="011-0000-0000"
+                        onChange={this.onChange} 
+                        name="phone"
+                        value={this.state.phone}
                       />
                       <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
@@ -121,10 +149,12 @@ export default class Contact extends Component {
                     <Form.Group as={Col} md="2" controlId="validationCustom03">
                       <Form.Label>Date of birth</Form.Label>
                       <Form.Control
-                        required
                         type="date"
                         placeholder="Date"
-                        defaultValue="DD/MM/YYYY"
+                        onChange={this.onChange}
+                        name="birth"
+                        value={this.state.birth}
+                        required
                       />
                       <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
@@ -133,18 +163,37 @@ export default class Contact extends Component {
                   <Form.Row>
                     <Form.Group as={Col} md="3" controlId="formGridAddress1">
                       <Form.Label>Address</Form.Label>
-                      <Form.Control placeholder="1234 Main St" />
+                      <Form.Control 
+                        placeholder="1234 Main St"
+                        name="address"
+                        onChange={this.onChange}
+                        value={this.state.address} 
+                      />
                     </Form.Group>
                     <Form.Group as={Col} md="3" controlId="validationCustom04">
                       <Form.Label>City</Form.Label>
-                      <Form.Control type="text" placeholder="City" required />
+                      <Form.Control 
+                        type="text" 
+                        placeholder="City" 
+                        name="city"
+                        onChange={this.onChange}
+                        value={this.state.city}
+                        required 
+                        />
                       <Form.Control.Feedback type="invalid">
                         Please provide a valid city.
                       </Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group as={Col} md="3" controlId="validationCustom05">
                       <Form.Label>State</Form.Label>
-                      <Form.Control type="text" placeholder="State" required />
+                      <Form.Control 
+                        type="text" 
+                        placeholder="State"
+                        onChange={this.onChange}
+                        name="state"
+                        value={this.state.state} 
+                        required 
+                        />
                       <Form.Control.Feedback type="invalid">
                         Please provide a valid state.
                       </Form.Control.Feedback>
@@ -152,18 +201,23 @@ export default class Contact extends Component {
                     <Form.Group as={Col} md="3" controlId="validationCustom05">
         
                       <Form.Label>Country</Form.Label>
-                      <select className="custom-select">
+                        <select 
+                          className="custom-select"
+                          name="country"
+                          value={this.state.country}
+                          onChange={this.onChange}
+                        >
                         <option >Open select menu</option>
-                        <option value="1">Argentina</option>
-                        <option value="2">Bolivia</option>
-                        <option value="3">Brasil</option>
-                        <option value="4">Chile</option>
-                        <option value="5">Colombia</option>
-                        <option value="6">Ecuador</option>
-                        <option value="7">Paraguay</option>
-                        <option value="8">Peru</option>
-                        <option value="9">Uruguay</option>
-                        <option value="10">Venezuela</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Bolivia">Bolivia</option>
+                        <option value="Brasil">Brasil</option>
+                        <option value="Chile">Chile</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Ecuador">Ecuador</option>
+                        <option value="Paraguay">Paraguay</option>
+                        <option value="Peru">Peru</option>
+                        <option value="Uruguay">Uruguay</option>
+                        <option value="Venezuela">Venezuela</option>
                       </select>
                     </Form.Group>
                   </Form.Row>
@@ -171,7 +225,13 @@ export default class Contact extends Component {
                   <Form.Row>
                     <Form.Group as={Col} md="5" controlId="formGridEmail">
                       <Form.Label>Email</Form.Label>
-                      <Form.Control type="email" placeholder="Enter email" required/>
+                      <Form.Control 
+                        type="email" 
+                        placeholder="Enter email" 
+                        name="email"
+                        onChange={this.onChange}
+                        value={this.state.email}
+                        required/>
                     </Form.Group>
                     
                   </Form.Row>

@@ -13,7 +13,8 @@ const userSchema = new Schema(
             required: true
         },
         phone: {
-            type: Number
+            type: Number,
+            required: true
             
         },
         birth: {
@@ -25,7 +26,7 @@ const userSchema = new Schema(
         city: {
             type: String
         },
-        State: {
+        state: {
             type: String
         },
         country: {
