@@ -1,7 +1,22 @@
 .maps-wrapper {
   width: 1027;
-  margin-left: 380px;
   height: 800px;
+}
+
+
+@media (max-width: 1100px) {
+  .maps-wrapper {
+    margin-top: 285px;
+  }
+  
+}
+
+
+@media (max-width: 767px) {
+  .maps-wrapper {
+    margin-top: 570px;
+  }
+  
 }
 
 .maps img {

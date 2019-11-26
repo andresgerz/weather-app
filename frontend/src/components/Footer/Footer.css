@@ -4,6 +4,24 @@
   margin-left: 10%;
 }
 
+
+@media (max-width: 991px) {
+
+  .footer-wrapper {
+    padding-top: 131px;
+  }
+
+}
+
+
+@media (max-width: 767px) {
+
+  .footer-wrapper {
+    padding-top: 347px;
+  }
+
+}
+
 .subscribe-email {
   width: 40%;
 }

@@ -22,6 +22,21 @@
   height: 685.5px;
 }
 
+@media (max-width: 1100px) {
+  #background-center {
+    height: 1205.78px;
+  }  
+}
+
+
+@media (max-width: 767px) {
+  #background-center {
+    height: 1961.34px;
+  }  
+}
+
+
+
 #background-bottom {
   background-color: #262936;
   height: 486px;

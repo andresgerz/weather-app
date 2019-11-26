@@ -19,7 +19,7 @@
   margin: 30px auto;
   width: 260px;
   position: absolute;
-  right: 1240px;
+  left: 5em;
 }
 
 @media (max-width: 75em) {
@@ -102,6 +102,8 @@
 }
 
 .options {
-  margin: 42px auto;
+  display: flex;
+  margin-top: 45px;
   position: absolute;
+  right: 5em;
 }

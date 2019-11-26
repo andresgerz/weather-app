@@ -26,7 +26,7 @@ library.add(
 export default function Footer(props) {
   
     return (
-            <Container>
+            
               <div className="footer-wrapper">
                 <Form className="subscribe-email float-left">
                                                       
@@ -43,6 +43,6 @@ export default function Footer(props) {
                 </div>
                 
               </div>
-            </Container>  
+              
     );
 }
