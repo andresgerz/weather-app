@@ -13,28 +13,24 @@ import Footer from './components/Footer/Footer';
 // Styles
 import './App.css';
 
-
+// Hook components
 export default function App(props) {
        
-    return  <div>
-              <Router>
-                
-                <div className="App text-white">    
-                  <NavBarWeb id="navbar-web" />
+    return  <React.Fragment id="app" className="text-white">
+              <Router>              
 
-                  <div>
-                    <Route path="/Home" component={Home} />
-                    <Route path="/Maps" component={Maps} />
-                    <Route path="/Alerts" component={Alerts} />
-                    <Route path="/News" component={News} />
-                    <Route path="/Contact" component={Contact} />
-                    <div id="background-bottom">
-                      <Footer />
-                    </div>
+                <NavBarWeb id="navbar-web" />
+
+                <div>
+                  <Route path="/Home" component={Home} />
+                  <Route path="/Maps" component={Maps} />
+                  <Route path="/Alerts" component={Alerts} />
+                  <Route path="/News" component={News} />
+                  <Route path="/Contact" component={Contact} />
+                  <div id="background-bottom">
+                    <Footer />
                   </div>
-              
-                </div>
-          
+                </div>                                    
               </Router>
-            </div>
+            </React.Fragment>
 }

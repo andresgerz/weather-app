@@ -4,16 +4,19 @@
   
 }
 
+
 #navbar-wrapper .button-home {
   background-color: #1D202B;
   border-radius: 30px;
   padding: -20px 10px;  
 }
 
+
 #navbar-wrapper .buttons {
   background-color: #1D202B;
   border: #1D202B;
 }
+
 
 .website-name {
   margin: 30px auto;
@@ -22,71 +25,6 @@
   left: 5em;
 }
 
-@media (max-width: 75em) {
-  .website-name {
-    left: 200px;
-  }
-
-  .options {
-  right: 200px;
-  }
-
-}
-
-@media (max-width: 64em) {
-  .website-name {
-    left: 200px;
-  }
-
-  .options {
-  right: 200px;
-  }
-
-}
-
-@media (max-width: 48em) {
-  .website-name {
-    left: 150px;
-  }
-
-  .options {
-  right: 150px;
-  }
-
-}
-
-@media (max-width: 37.5em) {
-  .website-name {
-    left: 100px;
-  }
-
-  .options {
-  right: 100px;
-  }
-
-}
-
-@media (max-width: 30em) {
-  .website-name {
-    left: 50px;
-  }
-
-  .options {
-  right: 50px;
-  }
-
-}
-
-@media (max-width: 20em) {
-  .website-name {
-    left: 25px;
-  }
-
-  .options {
-  right: 35px;
-  }
-
-}
 
 .weather-app {
   float: left;
@@ -94,12 +32,14 @@
   width: 49%;
 }
 
+
 .weather-icon-app {
   float: left;
   width: 10%;
   height: 100%;
   margin: 50px;
 }
+
 
 .options {
   display: flex;

@@ -15,9 +15,10 @@ export default class Home extends Component {
  
     
     this.state = {
+      cityCountry: "Buenos Aires, AR",
       errorStatus: false, 
       cityForecast: {
-        name: "Buenos Aires, AR",
+        name: "",
         day1: "",
         temp1: "",
         icon1: "",
@@ -129,27 +130,27 @@ export default class Home extends Component {
             day1Left: moment().locale("en").format("dddd"),
             tmax1: Math.round(dailyTemp[days[0]].temp),
             tmin1: Math.round(dailyTemp[days[0]].temp_min),
-          humidity1: result.data.list[0].main["humidity"],
-          pressure1: result.data.list[0].main["pressure"],
-          wind1: result.data.list[0].wind["speed"],
-          icon1: weatherObject[days[0]][0],
-          day2: moment().day(2).locale("en").format("dddd"),
-          tmax2: Math.round(dailyTemp[days[1]].temp_max),
-          tmin2: Math.round(dailyTemp[days[1]].temp_min),
-          icon2: weatherObject[days[1]][4],
-          day3: moment().day(3).locale("en").format("dddd"),
-          tmax3: Math.round(dailyTemp[days[2]].temp_max),
-          tmin3: Math.round(dailyTemp[days[2]].temp_min),
-          icon3: weatherObject[days[2]][4],
-          day4: moment().day(4).locale("en").format("dddd"),
-          tmax4: Math.round(dailyTemp[days[3]].temp_max),
-          tmin4: Math.round(dailyTemp[days[3]].temp_min),
-          icon4: weatherObject[days[3]][4],
-          day5: moment().day(5).locale("en").format("dddd"),
-          tmax5: Math.round(dailyTemp[days[4]].temp_max),
-          tmin5: Math.round(dailyTemp[days[4]].temp_min),
-          icon5: weatherObject[days[4]][0]
-        }  
+            humidity1: result.data.list[0].main["humidity"],
+            pressure1: result.data.list[0].main["pressure"],
+            wind1: result.data.list[0].wind["speed"],
+            icon1: weatherObject[days[0]][0],
+            day2: moment().day(2).locale("en").format("dddd"),
+            tmax2: Math.round(dailyTemp[days[1]].temp_max),
+            tmin2: Math.round(dailyTemp[days[1]].temp_min),
+            icon2: weatherObject[days[1]][4],
+            day3: moment().day(3).locale("en").format("dddd"),
+            tmax3: Math.round(dailyTemp[days[2]].temp_max),
+            tmin3: Math.round(dailyTemp[days[2]].temp_min),
+            icon3: weatherObject[days[2]][4],
+            day4: moment().day(4).locale("en").format("dddd"),
+            tmax4: Math.round(dailyTemp[days[3]].temp_max),
+            tmin4: Math.round(dailyTemp[days[3]].temp_min),
+            icon4: weatherObject[days[3]][4],
+            day5: moment().day(5).locale("en").format("dddd"),
+            tmax5: Math.round(dailyTemp[days[4]].temp_max),
+            tmin5: Math.round(dailyTemp[days[4]].temp_min),
+            icon5: weatherObject[days[4]][0]
+          }  
         
         console.log(forecastObject);
         console.log(dailyTemp);
@@ -187,7 +188,7 @@ export default class Home extends Component {
   } */
 
   render() {
-      return (  <div className="App text-white">
+      return (  <React.Fragment className="App text-white">
                         
                   <div id="background-top"> 
                     <Find id="find" 
@@ -208,7 +209,7 @@ export default class Home extends Component {
                   <div id="background-bottom">
                     <News />
                   </div>
-                </div>
+                </React.Fragment>
     );
   }
 }

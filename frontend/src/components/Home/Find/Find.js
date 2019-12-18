@@ -7,11 +7,10 @@ export default class Find extends Component {
   constructor(props) {
     super(props);
     
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
  
 
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
     
     this.props.onCityChange(e.currentTarget.cityCountry.value);

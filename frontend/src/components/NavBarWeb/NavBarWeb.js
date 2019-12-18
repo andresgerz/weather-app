@@ -32,7 +32,7 @@ export default function NavBarWeb(props) {
                         </div>
                       </div>
                         <div className="options">
-                          <Navbar collapseOnSelect expand="xl" variant="dark">
+                          <Navbar collapseOnSelect expand="sm" variant="dark">
                             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                             <Navbar.Collapse id="responsive-navbar-nav">
                               <ButtonToolbar>

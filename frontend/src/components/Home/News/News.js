@@ -12,8 +12,8 @@ export default class News extends Component {
     render() {
       return (
           
-              <Container className="">
-                <Row className="">
+              <Container className="text-white">
+                <Row>
                   <Col>  
                     <section className="">06.10</section>
                     <section className="infos">

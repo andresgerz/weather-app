@@ -27,13 +27,13 @@ export default function Footer(props) {
   
     return (
             
-              <div className="footer-wrapper">
+              <div className="footer-wrapper text-white">
                 <Form className="subscribe-email float-left">
                                                       
                   <Form.Control className="display-email" type="email" placeholder="Enter your email to subscribe..." />                                                 
                   <Button className="button-email" variant="primary" type="submit">Subscribe</Button>     
                   
-                  <label className="mt-5"><i>Copyright 2019 Weather App.</i></label>
+                  <label className="mt-5 text-white"><i>Copyright 2019 Weather App.</i></label>
                 </Form>
                 
                 <div className="social-icons float-left">

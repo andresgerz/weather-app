@@ -30,7 +30,7 @@ export default class Contact extends Component {
 
 
   getUsers = async () => {
-    const res = await axios.get('http://localhost:4000/api/users');
+    const res = await axios.get('/api/users');
 
     this.setState({
       users: res.data
@@ -43,7 +43,7 @@ export default class Contact extends Component {
     e.persist();
     const form = e.currentTarget;
     
-    await axios.post('http://localhost:4000/api/users', {
+    await axios.post('/api/users', {
       firstname: this.state.firstname,
       lastname: this.state.lastname,
       phone: this.state.phone,

@@ -95,7 +95,8 @@ library.add(
                           <FontAwesomeIcon icon={this.changeIcon(this.props.cityForecast.icon2)} size="3x" className="weather-icon" />
                         </div>
                         <div>
-                          <strong>{this.props.cityForecast.tmax2}ºC</strong><br></br>{this.props.cityForecast.tmin2}ºC
+                          <strong>{this.props.cityForecast.tmax2}ºC</strong><br></br>
+                          {this.props.cityForecast.tmin2}ºC
                         </div>
                       </div>
                     </div>
