@@ -24,7 +24,7 @@ export default function NavBarWeb(props) {
 
                       <div className="website-name float-left text-light">
                         <div className="weather-icon-nav">
-                          <FontAwesomeIcon icon={faCloud} size="2x" className="weather-icon" />
+                          <FontAwesomeIcon icon={faCloud} size="3x" className="weather-icon" />
                         </div>
                         <div className="weather-app">
                           <strong>Weather App</strong>
@@ -32,16 +32,16 @@ export default function NavBarWeb(props) {
                         </div>
                       </div>
                         <div className="options">
-                          <Navbar collapseOnSelect expand="sm" variant="dark">
+                          <Navbar collapseOnSelect expand="lg" variant="dark">
                             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                             <Navbar.Collapse id="responsive-navbar-nav">
                               <ButtonToolbar>
                                 <Nav className="mr-auto">
-                                  <button className="button-home border-primary"><Link className="text-primary mr-5" to="/Home" href="#home">Home</Link></button>  
-                                  <button className="buttons"><Link className="text-light mr-5" to="/Maps" href="#maps">Maps</Link></button>  
-                                  <button className="buttons"><Link className="text-light mr-5" to="/Alerts" href="#alerts">Alerts</Link></button>  
-                                  <button className="buttons"><Link className="text-light mr-5" to="/News" href="#news">News</Link></button>  
-                                  <button className="buttons"><Link className="text-light" to="/Contact" href="#contact">Contact</Link></button>  
+                                  <button className="button-home border-primary"><Link className="text-primary" to="/Home" href="#home">Home</Link></button>  
+                                  <button className="buttons"><Link className="text-light" to="/Maps" href="#maps">Maps</Link></button>  
+                                  <button className="buttons"><Link className="text-light" to="/Alerts" href="#alerts">Alerts</Link></button>  
+                                  <button className="buttons"><Link className="text-light" to="/News" href="#news">News</Link></button>  
+                                  <button className="last-button"><Link className="text-light" to="/Contact" href="#contact">Contact</Link></button>  
                                   
                                 </Nav>
                               </ButtonToolbar>

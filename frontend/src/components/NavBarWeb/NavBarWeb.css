@@ -12,32 +12,55 @@
 }
 
 
-#navbar-wrapper .buttons {
+#navbar-wrapper .buttons, #navbar-wrapper .last-button {
   background-color: #1D202B;
   border: #1D202B;
 }
 
 
+@media(max-width: 991px) {
+
+  .options {
+    width: 112px;
+  }
+
+
+  .options nav button {
+    margin-left: 32px;
+  }
+}
+
+
+@media(max-width: 390px) {
+  .weather-app {
+    display: none;
+  }
+}
+
 .website-name {
-  margin: 30px auto;
-  width: 260px;
+  margin: 45.5px auto;
+  width: 215px;
   position: absolute;
-  left: 5em;
+  left: 5rem;
 }
 
 
 .weather-app {
-  float: left;
+  float: right;
   height: 100%;
-  width: 49%;
+  width: 140px;
 }
 
 
-.weather-icon-app {
+.weather-app p {
+  font-size: 13px;
+}
+
+
+.weather-icon-nav {
   float: left;
-  width: 10%;
   height: 100%;
-  margin: 50px;
+  width: 40px;
 }
 
 
@@ -45,5 +68,17 @@
   display: flex;
   margin-top: 45px;
   position: absolute;
-  right: 5em;
+  right: 3rem;
+}
+
+
+.button-home {
+    padding: 0 1rem;
+    margin-right: 2rem;
+}
+
+
+#responsive-navbar-nav {
+  position: relative;
+  right: 56px;
 }

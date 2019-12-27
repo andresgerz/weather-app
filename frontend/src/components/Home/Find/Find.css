@@ -1,5 +1,5 @@
 #find-wrapper {
-  width: 60%;
+  width: 88%;
   height: 56px;
   margin: auto;
   margin-top: 151.5px;
@@ -24,6 +24,16 @@
   background-color: #009AD8;
 }
 
+
+.alert-wrapper {
+  position: relative;
+  top: -8px;
+}
+
+
 .alert-bar {
-  margin: -8px 0 0 320px;
+  width: 88%;
+  margin: auto;
+  position: absolute;
+  top: -100px;
 }

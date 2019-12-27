@@ -1,7 +1,7 @@
 .footer-wrapper {
-  width: 100%;
+  width: 88%;
   height: 120px;
-  /* margin-left: 10%; */
+  margin: auto;
 }
 
 
@@ -23,7 +23,7 @@
 }
 
 .subscribe-email {
-  width: 40%;
+  width: 66,7%;
 }
 
 .display-email {
