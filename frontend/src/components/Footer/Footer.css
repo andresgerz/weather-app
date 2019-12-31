@@ -1,30 +1,12 @@
 .footer-wrapper {
+  display: grid;
+  grid-template-columns: 60% 280px;
+  grid-template-rows: 10px;
   width: 88%;
-  height: 120px;
   margin: auto;
+  padding-top: 100px;
 }
 
-
-@media (max-width: 991px) {
-
-  .footer-wrapper {
-    padding-top: 131px;
-  }
-
-}
-
-
-@media (max-width: 767px) {
-
-  .footer-wrapper {
-    padding-top: 347px;
-  }
-
-}
-
-.subscribe-email {
-  width: 66,7%;
-}
 
 .display-email {
   float: left;
@@ -33,6 +15,7 @@
   background-color: #1D202B;
 }
 
+
 .display-email:focus {
   color: #495057;
   background-color: #1D202B;
@@ -40,6 +23,7 @@
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
 }
+
 
 .button-email {
   float: left;
@@ -50,6 +34,7 @@
   border-radius: 100px;
 }
 
+
 .social-icons {
-  margin-left: 200px;
+  margin-left: 120px;
 }

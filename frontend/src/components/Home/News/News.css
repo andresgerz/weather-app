@@ -1,27 +1,31 @@
 .news-wrapper {
-  width: 60%;
-  font-size: 62px;
-}
-
-
-.dates {
-  margin: 55px 0;
-}
-
-
-.infos {
-  margin: 50px 20px;
-}
-
-
-.container {
-  width: 100%;
+  padding-top: 100px;
+  margin: 0 50px;
   display: grid;
-  grid-template-columns: repeat(3, 50px);
-  grid-template-rows: 10px 10px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr) minmax(240px, 2fr));
+  color: white;
 }
 
 
-.item {
-  border: 2px dotted white;
+.news {
+  text-align: left;
+}
+
+
+.news h5 {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+.news p {
+  font-size: 14px;
+}
+
+
+.date {
+  font-size: 30px;
+  margin: 0 auto;
+  margin-top: -6px;
+  color: #009AD8;
 }

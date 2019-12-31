@@ -15,7 +15,7 @@ export default class Home extends Component {
  
     
     this.state = {
-      cityCountry: "Buenos Aires, AR",
+      cityCountry: "Resistencia, AR",
       errorStatus: false, 
       cityForecast: {
         name: "",
@@ -26,7 +26,8 @@ export default class Home extends Component {
         tmin1: "",
         humidity1: "",
         pressure1: "",
-        wind1: [],
+        wind1: "",
+        pp:"",
         day2: "",
         tmax2: "",
         tmin2: "",
@@ -67,7 +68,37 @@ export default class Home extends Component {
 
   getForecast() {
     
-    if(this.state.cityCountry != null) {
+
+    if(this.state.cityCountry === "Resistencia, AR") {
+
+      axios.get("http://localhost:4000/api/today")
+        .then( result => {
+          let currentForecast = {
+            name: this.state.cityCountry,
+            day1Right: moment().format("DD MMM"),
+            day1Left: moment().locale("en").format("dddd"),
+            tmax1: result.data.result[0][3],
+            tmin1: 0,
+            humidity1: result.data.result[0][4]/result.data.result[0][3],
+            pressure1: result.data.result[0][9],
+            wind1: result.data.result[0][8] + " km/h " + result.data.result[0][7],
+            icon1: 0,
+            pp:result.data.result[0][12]
+          }  
+        console.log(result.data.result[0][3]);
+        this.setState({
+          cityForecast: currentForecast
+        });
+
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    }
+
+
+
+    if(this.state.cityCountry != null && this.state.cityCountry != "Resistencia, AR") {
 
       axios.get("https://api.openweathermap.org/data/2.5/forecast?q=" + this.state.cityCountry + "&units=metric&appid=6200f7fd2611fa3c695ade64a041d5f7")
       .then(
@@ -132,7 +163,7 @@ export default class Home extends Component {
             tmin1: Math.round(dailyTemp[days[0]].temp_min),
             humidity1: result.data.list[0].main["humidity"],
             pressure1: result.data.list[0].main["pressure"],
-            wind1: result.data.list[0].wind["speed"],
+            wind1: result.data.list[0].wind["speed"] + " km/h",
             icon1: weatherObject[days[0]][0],
             day2: moment().day(2).locale("en").format("dddd"),
             tmax2: Math.round(dailyTemp[days[1]].temp_max),

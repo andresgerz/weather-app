@@ -41,7 +41,7 @@ export default function NavBarWeb(props) {
                                   <button className="buttons"><Link className="text-light" to="/Maps" href="#maps">Maps</Link></button>  
                                   <button className="buttons"><Link className="text-light" to="/Alerts" href="#alerts">Alerts</Link></button>  
                                   <button className="buttons"><Link className="text-light" to="/News" href="#news">News</Link></button>  
-                                  <button className="last-button"><Link className="text-light" to="/Contact" href="#contact">Contact</Link></button>  
+                                  <button className="buttons"><Link className="text-light" to="/Contact" href="#contact">Contact</Link></button>  
                                   
                                 </Nav>
                               </ButtonToolbar>

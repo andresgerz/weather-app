@@ -21,21 +21,25 @@
 @media(max-width: 991px) {
 
   .options {
-    width: 112px;
+    max-width: 68px;
   }
+}
 
 
-  .options nav button {
+@media( min-width: 991px ){
+
+  .buttons {
     margin-left: 32px;
   }
 }
 
 
-@media(max-width: 390px) {
+@media(max-width: 435px) {
   .weather-app {
     display: none;
   }
 }
+
 
 .website-name {
   margin: 45.5px auto;
@@ -65,20 +69,8 @@
 
 
 .options {
-  display: flex;
+  width: 470px;
   margin-top: 45px;
   position: absolute;
   right: 3rem;
-}
-
-
-.button-home {
-    padding: 0 1rem;
-    margin-right: 2rem;
-}
-
-
-#responsive-navbar-nav {
-  position: relative;
-  right: 56px;
 }

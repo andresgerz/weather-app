@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Form, Col, InputGroup, Button, Row } from 'react-bootstrap';
 import axios from 'axios';
 
+import "./Contact.css";
+
 // Hook component
 export default class Contact extends Component {
  
@@ -95,7 +97,7 @@ export default class Contact extends Component {
 
    render() { 
 
-      return (<div>
+      return (<div className="contact-wrapper">
                 <div className="m-5">
                   <h1>You can suscribe to our website</h1>
                 </div>
