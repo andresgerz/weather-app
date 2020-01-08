@@ -5,28 +5,15 @@
 }
 
 
-@media (max-width: 1100px) {
-  .maps-wrapper {
-    margin-top: 285px;
-  }
-  
-}
-
-
-@media (max-width: 767px) {
-  .maps-wrapper {
-    margin-top: 570px;
-  }
-  
-}
-
 .maps img {
   margin-right: 30px;
 }
 
+
 .maps-title {
   margin-bottom: 30px;
 }
+
 
 .maps-radars {
   background: black;

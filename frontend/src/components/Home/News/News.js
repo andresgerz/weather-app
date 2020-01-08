@@ -11,7 +11,7 @@ export default class News extends Component {
 
   
   today() {
-    return String(new Date().getDate() + "." + new Date().getMonth());
+    return String(new Date().getDate() + "." + (new Date().getMonth() + 1));
   };
 
 

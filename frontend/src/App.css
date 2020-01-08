@@ -42,12 +42,35 @@
 
 @media (max-width: 767px) {
   #background-center {
-    height: 1961.34px;
+    height: 1674.28px;
   }  
 }
 
 
-#background-bottom {
+@media (max-width: 622px) {
+  #background-center {
+    height: 1913.28px;
+  }  
+}
+
+
+#background-bottom, #footer-web {
   background-color: #262936;
-  height: 486px;
+  height: 320px;
+}
+
+
+@media(max-width: 894px) {
+
+  #background-bottom {
+    height: 616px;
+  }
+}
+
+
+@media(max-width: 555px) {
+
+  #background-bottom {
+    height: 916px;
+  }
 }

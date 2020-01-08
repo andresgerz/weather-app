@@ -14,6 +14,10 @@ export default function Alerts(props) {
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
+              <img 
+                width="300px"
+                src="./src/images/radar.gif" 
+                alt="radar don't work" /> 
             </div>
     );
 }

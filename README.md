@@ -1,8 +1,7 @@
 # weather-app
 
-Stack: MERN.
+Web app: stack MERN, web scraping, docker-compose.
 
-Summary: the weather observe is web scriping and the forecast weather is openweather api.
 
 ## 1) Install dependencies in backend/ and frontend/
     npm i

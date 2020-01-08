@@ -27,7 +27,7 @@ export default function App(props) {
                   <Route path="/Alerts" component={Alerts} />
                   <Route path="/News" component={News} />
                   <Route path="/Contact" component={Contact} />
-                  <div id="background-bottom">
+                  <div id="footer-web">
                     <Footer />
                   </div>
                 </div>                                    

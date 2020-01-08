@@ -70,99 +70,101 @@ library.add(
 
     render() { 
       return (<div>  
-                          
-                <div className="container forecast-wrapper">
-                  <div className="row forecast-days">
-
-                    <div className="column">
-                      <div className="row-top big-box"><p className="float-left ml-2">{this.props.cityForecast.day1Left}</p><p className="float-right mr-2">{this.props.cityForecast.day1Right}</p></div>
-                      <div className="row-bottom">
-                        <p>{this.props.cityForecast.name}</p>
-                        <div> 
-                          <div className="temp-now w-50 float-left">
-                          {this.props.cityForecast.tmax1}ºC
-                          </div>
-                          <div className="icon-now"><FontAwesomeIcon icon={this.changeIcon(this.props.cityForecast.icon1)} size="5x" className="weather-icon today-icon ml-5 mt-4" />
-                          </div>
-                        </div>   
-                        <div className="data-now">
-                          <p>HR: {this.props.cityForecast.humidity1} %  <br></br>
-                          Pressure: {this.props.cityForecast.pressure1} hPa <br></br>
-                          Wind: {this.props.cityForecast.wind1}
-                          PP: {this.props.cityForecast.pp} mm
-                          </p>
-                        </div>   
+                <div className="forecast-wrapper">
+                  <div className="days">
+                    <div className="table-top">
+                      <p className="float-left ml-2">{this.props.cityForecast.day1Left}</p><p className="float-right mr-2">{this.props.cityForecast.day1Right}</p>
+                    </div>
+                    <div className="table-buttom">
+                    <div className="row-bottom">
+                    <p>{this.props.cityForecast.name}</p>
+                    <div> 
+                      <div className="temp-now float-left">
+                      {this.props.cityForecast.tmax1}ºC
                       </div>
-                    </div>
-
-                    <div className="column">
-                      <div className="row-top">{this.props.cityForecast.day2}</div>
-                      <div className="row-bottom-next-days">
-                        <div className="boxes-next-days">  
-                          <div>
-                            <FontAwesomeIcon icon={this.changeIcon(this.props.cityForecast.icon2)} size="3x" className="weather-icon" />
-                          </div>
-                          <div className="temps">
-                            <strong>{this.props.cityForecast.tmax2}ºC</strong><br></br>
-                            <p className="text-center">{this.props.cityForecast.tmin2}ºC</p>
-                          </div>
-                        </div>
+                      <div className="icon-now"><FontAwesomeIcon icon={this.changeIcon(this.props.cityForecast.icon1)} size="5x" className="weather-icon today-icon ml-5 mt-4" />
                       </div>
-                    </div>
-
-                    <div className="column">
-                      <div className="row-top">{this.props.cityForecast.day3}</div>
-                      <div className="row-bottom-next-days">
-                        <div className="boxes-next-days">        
-                          <div>
-                            <FontAwesomeIcon icon={this.changeIcon(this.props.cityForecast.icon3)} size="3x" className="weather-icon" />  
-                          </div>
-                          <div className="temps">
-                            <strong>{this.props.cityForecast.tmax3}ºC</strong><br></br>    <p className="text-center">{this.props.cityForecast.tmin3}ºC</p>
-                          </div>
-                          </div>
-                        </div>
-                    </div>
-
-                    <div className="column">
-                      <div className="row-top">{this.props.cityForecast.day4}</div>
-                      <div className="row-bottom-next-days">
-                        <div className="boxes-next-days">  
-                          <div>
-                            <FontAwesomeIcon icon={this.changeIcon(this.props.cityForecast.icon4)} size="3x" className="weather-icon" />
-                          </div>
-                          <div className="temps">
-                            <strong>{this.props.cityForecast.tmax4}ºC</strong><br></br>    <p className="text-center">{this.props.cityForecast.tmin4}ºC</p>
-                          </div>
-                          </div>            
-                        </div>
-                    </div>
-
-                    <div className="column">
-                      <div className="row-top">{this.props.cityForecast.day5}</div>
-                      <div className="row-bottom-next-days">
-                        <div className="boxes-next-days">  
-                          <div>
-                            <FontAwesomeIcon icon={this.changeIcon(this.props.cityForecast.icon5)} size="3x" className="weather-icon" />
-                          </div>
-                          <div className="temps">
-                            <strong>{this.props.cityForecast.tmax5}ºC</strong><br></br>
-                            <p className="text-center">{this.props.cityForecast.tmin5}ºC</p>
-                          </div>              
-                          </div>
-                      </div>
-                    </div>
-
+                    </div>   
+                    <div className="data-now">
+                      <p>HR: {this.props.cityForecast.humidity1} %  <br></br>
+                      Pressure: {this.props.cityForecast.pressure1} hPa <br></br>
+                      Wind: {this.props.cityForecast.wind1} 
+                      <p>PP: {this.props.cityForecast.pp} mm</p>
+                      </p>
+                    </div>   
                   </div>
-                </div>
-
-
-                <div className="forecast-wrapper-2">
-                  <div className="day-1">1</div>
-                  <div className="days day-2">2</div>
-                  <div className="days day-3">3</div>
-                  <div className="days day-4">4</div>
-                  <div className="days day-5">5</div>
+                    
+                    </div>
+                  
+                  </div>
+                  
+                  <div className="days">
+                    <div className="table-top">
+                      {this.props.cityForecast.day2}
+                    </div>
+                    <div className="table-buttom">
+                    <div className="boxes-next-days">  
+                    <div>
+                      <FontAwesomeIcon icon={this.changeIcon(this.props.cityForecast.icon2)} size="3x" className="weather-icon" />
+                    </div>
+                    <div className="temps">
+                      <strong>{this.props.cityForecast.tmax2}ºC</strong><br></br>
+                      <p className="text-center">{this.props.cityForecast.tmin2}ºC</p>
+                    </div>
+                    </div>
+                    </div>
+                  </div>
+                  
+                  <div className="days">
+                    <div className="table-top">
+                    {this.props.cityForecast.day3}
+                    </div>
+                    <div className="table-buttom">
+                    <div className="boxes-next-days">  
+                    <div>
+                      <FontAwesomeIcon icon={this.changeIcon(this.props.cityForecast.icon3)} size="3x" className="weather-icon" />
+                    </div>
+                    <div className="temps">
+                      <strong>{this.props.cityForecast.tmax3}ºC</strong><br></br>
+                      <p className="text-center">{this.props.cityForecast.tmin3}ºC</p>
+                    </div>
+                    </div>
+                    </div>
+                  </div>
+                  
+                  <div className="days">
+                    <div className="table-top">
+                    {this.props.cityForecast.day4}
+                    </div>
+                    <div className="table-buttom">
+                    <div className="boxes-next-days">  
+                    <div>
+                      <FontAwesomeIcon icon={this.changeIcon(this.props.cityForecast.icon4)} size="3x" className="weather-icon" />
+                    </div>
+                    <div className="temps">
+                      <strong>{this.props.cityForecast.tmax4}ºC</strong><br></br>
+                      <p className="text-center">{this.props.cityForecast.tmin4}ºC</p>
+                    </div>
+                    </div>
+                    </div>
+                  </div>
+                  
+                  <div className="days">
+                    <div className="table-top">
+                    <p>{this.props.cityForecast.day5}</p>
+                    </div>
+                    <div className="table-buttom">
+                    <div className="boxes-next-days">  
+                    <div>
+                      <FontAwesomeIcon icon={this.changeIcon(this.props.cityForecast.icon5)} size="3x" className="weather-icon" />
+                    </div>
+                    <div className="temps">
+                      <strong>{this.props.cityForecast.tmax5}ºC</strong><br></br>
+                      <p className="text-center">{this.props.cityForecast.tmin5}ºC</p>
+                    </div>
+                    </div>
+                    </div>
+                  </div>
                 </div>
               </div>   
   )};

@@ -1,40 +1,22 @@
 .footer-wrapper {
-  display: grid;
-  grid-template-columns: 60% 280px;
-  grid-template-rows: 10px;
-  width: 88%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: space-between;
+  width: 85%;
   margin: auto;
   padding-top: 100px;
+  min-height: 300px;
 }
 
 
-.display-email {
-  float: left;
-  height: 56px;
-  border-radius: 100px;
-  background-color: #1D202B;
-}
-
-
-.display-email:focus {
-  color: #495057;
-  background-color: #1D202B;
-  border-color: #80bdff;
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
-}
-
-
-.button-email {
-  float: left;
-  height: 46px;
-  margin-top: 5px;
-  margin-left: -102.16px; 
-  right: 1px;
-  border-radius: 100px;
+.copyright {
+  width: 300px;
+  height: 50px;
 }
 
 
 .social-icons {
-  margin-left: 120px;
+  width: 140px;
+  height: 50px; 
 }

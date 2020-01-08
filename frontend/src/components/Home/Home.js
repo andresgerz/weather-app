@@ -15,7 +15,7 @@ export default class Home extends Component {
  
     
     this.state = {
-      cityCountry: "Resistencia, AR",
+      cityCountry: "Buenos Aires, AR",
       errorStatus: false, 
       cityForecast: {
         name: "",
@@ -78,12 +78,15 @@ export default class Home extends Component {
             day1Right: moment().format("DD MMM"),
             day1Left: moment().locale("en").format("dddd"),
             tmax1: result.data.result[0][3],
-            tmin1: 0,
             humidity1: result.data.result[0][4]/result.data.result[0][3],
             pressure1: result.data.result[0][9],
             wind1: result.data.result[0][8] + " km/h " + result.data.result[0][7],
-            icon1: 0,
-            pp:result.data.result[0][12]
+            pp: result.data.result[0][12],
+            day2: moment().day(2).locale("en").format("dddd"),
+            day3: moment().day(3).locale("en").format("dddd"),
+            day4: moment().day(4).locale("en").format("dddd"),
+            day5: moment().day(5).locale("en").format("dddd")
+
           }  
         console.log(result.data.result[0][3]);
         this.setState({
@@ -219,9 +222,9 @@ export default class Home extends Component {
   } */
 
   render() {
-      return (  <React.Fragment className="App text-white">
+      return (  <div>
                         
-                  <div id="background-top"> 
+                  <div id="background-top">
                     <Find id="find" 
                       onCityChange={this.onCityChange} 
                       cityCountry={this.state.cityCountry}
@@ -240,7 +243,7 @@ export default class Home extends Component {
                   <div id="background-bottom">
                     <News />
                   </div>
-                </React.Fragment>
+                </div>
     );
   }
 }
