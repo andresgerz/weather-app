@@ -1,0 +1,8 @@
+div .alert {
+  position: relative;
+  top: 10px;
+}
+
+.alert-wrapper {
+  height: 800px;
+}

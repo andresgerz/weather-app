@@ -1,0 +1,39 @@
+#find-wrapper {
+  width: 88%;
+  height: 56px;
+  margin: auto;
+  margin-top: 151.5px;
+}
+
+#find-wrapper .input-find {
+  float: left;
+  height: 56px;
+  border-radius: 100px;
+  text-indent: 25px;
+  background-color: #1D202B;
+}
+
+#find-wrapper .button-find {
+  float: left;
+  width: 120px;
+  height: 46px;
+  margin-left: -125px;
+  margin-top: 5px; 
+  border-radius: 100px;
+  color: white;
+  background-color: #009AD8;
+}
+
+
+.alert-wrapper {
+  position: relative;
+  top: -8px;
+}
+
+
+.alert-bar {
+  width: 88%;
+  margin: auto;
+  position: absolute;
+  top: -100px;
+}

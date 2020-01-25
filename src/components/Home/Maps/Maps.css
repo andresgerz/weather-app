@@ -1,0 +1,21 @@
+.maps-wrapper {
+  width: 1027;
+  height: 800px;
+  color: #FFF
+}
+
+
+.maps img {
+  margin-right: 30px;
+}
+
+
+.maps-title {
+  margin-bottom: 30px;
+}
+
+
+.maps-radars {
+  background: black;
+  margin: 0 48.36px;
+}
