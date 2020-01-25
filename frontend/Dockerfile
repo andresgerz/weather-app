@@ -1,7 +1,0 @@
-FROM node:10 
-WORKDIR /home/andres/projects/weather-app
-COPY package*.json ./
-RUN npm i
-COPY . .
-EXPOSE 3000
-CMD ["npm", "start"]
