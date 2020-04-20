@@ -4,7 +4,7 @@ import moment from 'moment';
 
 import Find from './Find/Find';
 import ForecastTable from './ForecastTable/ForecastTable';
-import Maps from './Maps/Maps';
+import Meteorogram from './Meteorogram/Meteorogram';
 import News from './News/News';
 
 
@@ -17,6 +17,9 @@ export default class Home extends Component {
     this.state = {
       cityCountry: "Buenos Aires, AR",
       errorStatus: false, 
+      forecastObject: {},
+      chartObject: {},
+      dailyTemp: {},
       cityForecast: {
         name: "",
         day1: "",
@@ -114,26 +117,38 @@ export default class Home extends Component {
 
 
           let days = [];
+          let chartObject = {};
           let forecastObject = {};
           let weatherObject = {};
-          console.log(result);
+
+          let attributes = Object.keys(result.data.list[1].main);
+          attributes.map(attr => chartObject[attr] = []);
+
 
           for (let i = 0; i < result.data.list.length; i++) {
+            let main = result.data.list[i].main;
             let forecastDate = moment(result.data.list[i].dt_txt).format('YYYY-MM-DD');
             
             if (!forecastObject.hasOwnProperty(forecastDate)) {
-              forecastObject[forecastDate] = [result.data.list[i].main];
+              forecastObject[forecastDate] = [main];
               weatherObject[forecastDate] = [result.data.list[i].weather[0].description]
-
+              
             } else {
-              forecastObject[forecastDate].push(result.data.list[i].main);
+              forecastObject[forecastDate].push(main);
               weatherObject[forecastDate].push(result.data.list[i].weather[0].description);
+              
+            }
+                        
+            chartObject.temp.push(main.temp);
+            chartObject.temp_max.push(main.temp_max);
+            chartObject.temp_min.push(main.temp_min);
+            chartObject.humidity.push(main.humidity);
 
-            } 
           }
+          //chartObject = this.state.chartObject.temp.push(result.data.list[i].main.temp);
+          console.log("forecasDate");
+          console.log(chartObject);
           
-          
-          let dailyTemp = {};
           days = Object.keys(forecastObject);
           
           for(let idays=0; idays < days.length; idays++) {
@@ -141,16 +156,16 @@ export default class Home extends Component {
               
               let currentDateValues = forecastObject[days[idays]][ihours];
               // Chequeo si esta key no esta seteada, la inicializo con el objeto que tenga el array en esta posicion
-              if (!dailyTemp.hasOwnProperty(days[idays])) {           
-                dailyTemp[days[idays]] = currentDateValues;
+              if (!this.state.dailyTemp.hasOwnProperty(days[idays])) {           
+                this.state.dailyTemp[days[idays]] = currentDateValues;
                 continue;
               } 
               else {
-                if (dailyTemp[days[idays]].temp_max < currentDateValues.temp_max) {
-                  dailyTemp[days[idays]].temp_max = currentDateValues.temp_max;
+                if (this.state.dailyTemp[days[idays]].temp_max < currentDateValues.temp_max) {
+                  this.state.dailyTemp[days[idays]].temp_max = currentDateValues.temp_max;
                 }
-                if (dailyTemp[days[idays]].temp_min > currentDateValues.temp_min) {
-                  dailyTemp[days[idays]].temp_min = currentDateValues.temp_min;
+                if (this.state.dailyTemp[days[idays]].temp_min > currentDateValues.temp_min) {
+                  this.state.dailyTemp[days[idays]].temp_min = currentDateValues.temp_min;
                 }            
               }
             };
@@ -161,38 +176,45 @@ export default class Home extends Component {
           let currentForecast = {
             name: this.state.cityCountry,
             day1Right: moment().format("DD MMM"),
-            day1Left: moment().locale("en").format("dddd"),
-            tmax1: Math.round(dailyTemp[days[0]].temp),
-            tmin1: Math.round(dailyTemp[days[0]].temp_min),
+            day: [  moment().locale("en").format("dddd"),
+                    moment().day(2).locale("en").format("dddd"),
+                    moment().day(3).locale("en").format("dddd"),
+                    moment().day(4).locale("en").format("dddd"),
+                    moment().day(5).locale("en").format("dddd")
+            ],
+            tmax: [  Math.round(this.state.dailyTemp[days[0]].temp), 
+                     Math.round(this.state.dailyTemp[days[1]].temp_max),
+                     Math.round(this.state.dailyTemp[days[2]].temp_max),
+                     Math.round(this.state.dailyTemp[days[3]].temp_max),
+                     Math.round(this.state.dailyTemp[days[4]].temp_max)
+            ],
+            tmin: [  Math.round(this.state.dailyTemp[days[0]].temp_min),
+                     Math.round(this.state.dailyTemp[days[1]].temp_min),
+                     Math.round(this.state.dailyTemp[days[2]].temp_min),
+                     Math.round(this.state.dailyTemp[days[3]].temp_min),
+                     Math.round(this.state.dailyTemp[days[4]].temp_min)
+            ],
             humidity1: result.data.list[0].main["humidity"],
             pressure1: result.data.list[0].main["pressure"],
             wind1: result.data.list[0].wind["speed"] + " km/h",
-            icon1: weatherObject[days[0]][0],
-            day2: moment().day(2).locale("en").format("dddd"),
-            tmax2: Math.round(dailyTemp[days[1]].temp_max),
-            tmin2: Math.round(dailyTemp[days[1]].temp_min),
-            icon2: weatherObject[days[1]][4],
-            day3: moment().day(3).locale("en").format("dddd"),
-            tmax3: Math.round(dailyTemp[days[2]].temp_max),
-            tmin3: Math.round(dailyTemp[days[2]].temp_min),
-            icon3: weatherObject[days[2]][4],
-            day4: moment().day(4).locale("en").format("dddd"),
-            tmax4: Math.round(dailyTemp[days[3]].temp_max),
-            tmin4: Math.round(dailyTemp[days[3]].temp_min),
-            icon4: weatherObject[days[3]][4],
-            day5: moment().day(5).locale("en").format("dddd"),
-            tmax5: Math.round(dailyTemp[days[4]].temp_max),
-            tmin5: Math.round(dailyTemp[days[4]].temp_min),
-            icon5: weatherObject[days[4]][0]
+            icon: [   weatherObject[days[0]][0],
+                      weatherObject[days[1]][4],
+                      weatherObject[days[2]][4],
+                      weatherObject[days[3]][4], 
+                      weatherObject[days[4]][0]
+          ]
           }  
         
         console.log(forecastObject);
-        console.log(dailyTemp);
+        console.log("analysis")
+        //console.log(this.state.dailyTemp);
         console.log(currentForecast);
-
+      
 
         this.setState({
-          cityForecast: currentForecast
+          cityForecast: currentForecast,
+          forecastObject: forecastObject,
+          chartObject: chartObject
         });
       }).catch(error => {
         
@@ -238,7 +260,7 @@ export default class Home extends Component {
                       cityCountry={this.state.cityCountry} 
                       cityForecast={this.state.cityForecast} 
                       />
-                    <Maps />
+                    <Meteorogram chartObject={this.state.chartObject} />
                   </div>
                   <div id="background-bottom">
                     <News />

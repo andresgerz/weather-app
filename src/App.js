@@ -4,7 +4,7 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 // Components
 import Home from './components/Home/Home';
 import NavBarWeb from './components/NavBarWeb/NavBarWeb';
-import Maps from './components/Home/Maps/Maps';
+import Meteorogram from './components/Home/Meteorogram/Meteorogram';
 import Alerts from './components/Alerts/Alerts';
 import News from './components/Home/News/News';
 import Contact from './components/Contact/Contact';
@@ -23,7 +23,7 @@ export default function App(props) {
 
                 <React.Fragment>
                   <Route path="/Home" component={Home} />
-                  <Route path="/Maps" component={Maps} />
+                  <Route path="/Meteorogram" component={Meteorogram} />
                   <Route path="/Alerts" component={Alerts} />
                   <Route path="/News" component={News} />
                   <Route path="/Contact" component={Contact} />

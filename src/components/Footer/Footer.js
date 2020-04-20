@@ -27,7 +27,7 @@ export default function Footer(props) {
   
     return (
             
-              <React.Fragment className="footer-wrapper text-white">
+              <div className="footer-wrapper text-white">
                 <div className="copyright float-left">                                       
                   <p className="text-white"><i>Copyright 2019 Weather App.</i></p>
                 </div>
@@ -38,7 +38,7 @@ export default function Footer(props) {
                   <FontAwesomeIcon icon={faFacebookSquare} size="2x" className="weather-icon m-2" />
                 </div>
                 
-              </React.Fragment>
+              </div>
               
     );
 }

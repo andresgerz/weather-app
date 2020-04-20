@@ -1,6 +1,6 @@
 /* CCS Flexbox */
 
-.forecast-wrapper {
+.forecast-container {
   width: 100%;
   display: flex;
   align-content: flex-start;
@@ -13,31 +13,9 @@
 }
 
 
-.forecast-wrapper .days:first-child {
+.forecast-container .item-day:first-child {
   width: 532px;
   height: 285px;
-}
-
-
-@media(max-width: 622px) {
-  
-  .forecast-wrapper .days:first-child {
-    width: 88%;
-  }
-  
-}
-
-
-@media(max-width: 470px) {
-
-  .forecast-wrapper .days:first-child .temp-now {
-    font-size: 42px;
-  } 
-
-
-  .icon-now {
-    width: 140px;
-  }
 }
 
 
@@ -46,7 +24,7 @@
 }
 
 
-.forecast-wrapper .days {
+.forecast-container .item-day {
   width: 152px;
   height: 285px;
 }
@@ -65,22 +43,22 @@
 }
 
 
-.forecast-wrapper .days:nth-of-type(2n+1) .table-top {
+.forecast-container .item-day:nth-of-type(2n+1) .table-top {
 background-color: #2D303D;
 }
 
 
-.forecast-wrapper .days:nth-of-type(2n) .table-top {
+.forecast-container .item-day:nth-of-type(2n) .table-top {
   background-color: #232531;
 }
 
 
-.forecast-wrapper .days:nth-of-type(2n+1) .table-buttom {
+.forecast-container .item-day:nth-of-type(2n+1) .table-buttom {
   background-color: #323544;
 }
 
 
-.forecast-wrapper .days:nth-of-type(2n) .table-buttom {
+.forecast-container .item-day:nth-of-type(2n) .table-buttom {
   background-color: #262936;
 }
 
@@ -122,7 +100,7 @@ background-color: #2D303D;
 }
 
 
-.boxes-next-days {
+.item-day .boxes-next-item-day {
   width: 56px;
   height: 100%;
   padding-top: 50px;
