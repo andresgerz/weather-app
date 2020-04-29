@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
-
+import { connect } from 'react-redux';
+import moment from 'moment';
 
 const styles = {
   fontFamily: 'sans-serif',
   textAlign: 'center',
   width: '700px',
   height: '500px',
-  marginLeft: '100px'
+  margin: '0px auto'
 };
 
 
@@ -19,10 +20,10 @@ class Meteorogram extends Component {
 
     this.state = {
       data: { 
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July','January', 'February', 'March', 'April', 'May', 'June', 'July','January', 'February', 'March', 'April', 'May', 'June', 'July','January', 'February', 'March', 'April', 'May', 'June', 'July','January', 'February', 'March', 'April', 'May', 'June', 'July','January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: [],
         datasets: [
           {
-            label: 'Min Temp',
+            label: 'Temp',
             fill: false,
             lineTension: 0.1,
             backgroundColor: 'rgba(75,192,192,0.4)',
@@ -40,91 +41,74 @@ class Meteorogram extends Component {
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,
-            data: [20]
-          }
+            data: []
+          },
         ]
       }
     }
-    this.updateData = this.updateData.bind(this);
   }
 
 
-  updateData() {
+  updateData = () => {
     console.log("render");
-    console.log(this.props.chartObject);
+    console.log(this.props.weather);
+   
+    let days = [];
+    let result = this.props.weather[0];
+    let chartObject = {};
+    let forecastObject = {};
+    let weatherObject = {};
+
+    let attributes = Object.keys(result.list[1].main);
+    attributes.map(attr => chartObject[attr] = []);
     
+    chartObject["date"] = [];
+
+    for (let i = 0; i < result.list.length; i++) {
+      let main = result.list[i].main;
+      let forecastDate = `${moment(result.list[i].dt_txt).format('DD/MM')} | ${result.list[i].dt_txt.substring(11, 13)} hs`;
+      
+      chartObject.date.push(forecastDate);
+      chartObject.temp.push(main.temp);
+      chartObject.temp_max.push(main.temp_max);
+      chartObject.temp_min.push(main.temp_min);
+      chartObject.humidity.push(main.humidity);
+
+    }
+    console.log('chartobj');
+    console.log(chartObject);
+      
     const datasetsCopy = this.state.data.datasets;
-    const dataCopy = datasetsCopy[0].data.slice(0);
-   // dataCopy[0] = dataCopy[0] + 10;
-    this.props.chartObject.temp.map(t => {datasetsCopy[0].data.push(t)});
+
     
-    //datasetsCopy[0].data.push(this.props.chartObject.temp[i]);
+    datasetsCopy[0].data = chartObject.temp.slice();
+    
+    const label = chartObject.date.slice();
 
     this.setState({
       data: Object.assign({}, this.state.data, {
-          datasets: datasetsCopy
+          datasets: datasetsCopy,
+          labels: label
       })
-  });
+    });
   }
-/* 
-  componentWillMount() {
-  } 
-   */
-
+ 
   componentDidUpdate(prevProps) {
     // Uso tipico (no olvides de comparar los props):
-    if (this.props.chartObject.temp !== prevProps.chartObject.temp) {
+    if (this.props.weather !== prevProps.weather) {
       console.log("updateDATA");
       this.updateData();
     }
   }
   
-/*   componentDidMount() {
-
-      this.setState(prevState => ({
-        ...prevState,
-        someProperty: {
-            ...prevState.someProperty,
-            someOtherProperty: {
-                ...prevState.someProperty.someOtherProperty, 
-                anotherProperty: {
-                  ...prevState.someProperty.someOtherProperty.anotherProperty,
-                  flag: false
-                }
-            }
-        }
-    }))
-  } */
-    //const { datasets } = this.state.data;
-    //console.log("canvas");
-    //console.log(this.refs.chart.chartInstance);
-    //console.log(this.refs.chart.chartInstance.data.datasets[0].data = [0,1]);
-    //console.log(this.state.datasets[0].data);
-    
-   /*  function adddata(){
-      myLineChart.data.datasets[0].data[1] = 0;
-      myLineChart.data.labels[1] = "Newly Added";
-      myLineChart.update();
-    }
-    
-    const option = {
-      showLines: true
-    };
-  
-    const myLineChart = Chart.Line(canvas,{
-      data:data,
-      options:option
-  77  }); */
-  //}
-
-  
+ 
   render() {
    
     return(
       
       <div style={styles}>
         <div>
-        <h2>Meteorogram</h2>
+          <h2>Meteorogram</h2>
           <Line data={this.state.data} />
         </div>
       </div>
@@ -132,4 +116,13 @@ class Meteorogram extends Component {
 };
   
 
-export default Meteorogram;
+
+
+function mapStateToProps({ weather} ) {
+  return { weather };
+}
+
+
+export default connect(
+  mapStateToProps
+)(Meteorogram);

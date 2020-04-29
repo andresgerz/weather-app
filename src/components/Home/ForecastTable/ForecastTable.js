@@ -193,18 +193,18 @@ class ForecastTable extends Component {
         </div>
       </div>   
       <div className="data-now">
-        <p>HR: {currentForecast.humidity1} %  <br></br>
+        <div>HR: {currentForecast.humidity1} %  <br></br>
         Pressure: {currentForecast.pressure1} hPa <br></br>
         Wind: {currentForecast.wind1} 
-        <p>PP: {currentForecast.pp} mm</p>
-        </p>
+          <div>PP: {currentForecast.pp} mm</div>
+        </div>
       </div>   
       </div>
       </div>
     </div>
     { this.state.auxArr.map(iDay => { 
         return(
-          <div className="item-day">
+          <div className="item-day" key={iDay.toString()}>
             <div className="table-top">
               {currentForecast.day[iDay]}
             </div>

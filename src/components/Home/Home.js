@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import moment from 'moment';
 
 import Find from './Find/Find';
 import ForecastTable from './ForecastTable/ForecastTable';
@@ -102,10 +100,8 @@ export default class Home extends Component {
 
           </div>
           <div id="background-center">
-            <ForecastTable id="table" 
-            
-              />
-            
+            <ForecastTable id="table" />
+            <Meteorogram />
           </div>
           <div id="background-bottom">
             <News />
