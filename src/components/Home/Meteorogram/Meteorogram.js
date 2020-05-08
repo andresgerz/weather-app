@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Line } from 'react-chartjs-2';
+import { Line, Bar } from 'react-chartjs-2';
 import { connect } from 'react-redux';
 import moment from 'moment';
 
@@ -19,6 +19,7 @@ class Meteorogram extends Component {
     
 
     this.state = {
+      navegation: 0,
       data: { 
         labels: [],
         datasets: [
@@ -63,7 +64,7 @@ class Meteorogram extends Component {
     attributes.map(attr => chartObject[attr] = []);
     
     chartObject["date"] = [];
-
+    
     for (let i = 0; i < result.list.length; i++) {
       let main = result.list[i].main;
       let forecastDate = `${moment(result.list[i].dt_txt).format('DD/MM')} | ${result.list[i].dt_txt.substring(11, 13)} hs`;
@@ -73,6 +74,7 @@ class Meteorogram extends Component {
       chartObject.temp_max.push(main.temp_max);
       chartObject.temp_min.push(main.temp_min);
       chartObject.humidity.push(main.humidity);
+      chartObject.pressure.push(main.pressure);
 
     }
     console.log('chartobj');
@@ -80,9 +82,14 @@ class Meteorogram extends Component {
       
     const datasetsCopy = this.state.data.datasets;
 
+    if (this.state.navegation === 0) {
+      datasetsCopy[0].data = chartObject.temp.slice();
+    } 
     
-    datasetsCopy[0].data = chartObject.temp.slice();
-    
+    if (this.state.navegation === 1) {
+      datasetsCopy[0].data = chartObject.pressure.slice();
+    }
+
     const label = chartObject.date.slice();
 
     this.setState({
@@ -101,16 +108,44 @@ class Meteorogram extends Component {
     }
   }
   
+
+  onChange = (id, parameter) => {
+    this.setState({
+      navegation: id,
+    })
+    
+    this.updateData();
+  }
  
-  render() {
-   
+
+  render() {   
     return(
       
-      <div style={styles}>
-        <div>
-          <h2>Meteorogram</h2>
-          <Line data={this.state.data} />
-        </div>
+      <div id="meteorogram">
+        <h2>Meteorogram</h2>
+        <button onClick={() => {this.onChange(0, 'Temperature')}}><a>Temperature</a></button>
+        <button onClick={() => {this.onChange(1, 'Pressure')}}><a>Pressure</a></button>
+
+        { (() => {
+            switch (this.state.navegation) {
+              case 0:
+                return  <div style={styles}>
+                          <div>
+                            <Line data={this.state.data} />
+                          </div>
+                        </div>
+              case 1:
+                return  <div style={styles}>
+                          <div>
+                            <Line data={this.state.data} />
+                          </div>
+                        </div>
+              case 2:
+                return <div>Nothing</div>
+            }    
+
+        })() 
+        }     
       </div>
     )}
 };
