@@ -21,6 +21,7 @@
 
 .row-bottom {
   padding: 10px;
+  width: 100px;
 }
 
 
@@ -71,8 +72,8 @@ background-color: #2D303D;
 
 .icon-now {
   float: right;
-  height: 100px;
-  width: 190px;
+  height: 100%;
+  width: 220px;
   margin: 0 auto;
 }
 

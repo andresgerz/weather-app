@@ -39,6 +39,7 @@ library.add(
 
 import moment from 'moment';
 import { connect } from 'react-redux';
+import { Map } from './Map/Map';
 
 class ForecastTable extends Component {
   
@@ -93,11 +94,9 @@ class ForecastTable extends Component {
       if (!forecastObject.hasOwnProperty(forecastDate)) {
         forecastObject[forecastDate] = [main];
         weatherObject[forecastDate] = [result.list[i].weather[0].description]
-        
       } else {
         forecastObject[forecastDate].push(main);
         weatherObject[forecastDate].push(result.list[i].weather[0].description);
-        
       }
                   
       chartObject.temp.push(main.temp);
@@ -168,7 +167,7 @@ class ForecastTable extends Component {
   
   console.log(forecastObject);
   console.log("analysis")
-  //console.log(dailyTemp);
+  console.log(result[0].city.coord);
   console.log(currentForecast);
 
   return(
@@ -181,23 +180,26 @@ class ForecastTable extends Component {
         <div className="row-bottom">
           <p>{currentForecast.name}</p>
         <div> 
-        <div className="temp-now float-left">
-        {currentForecast.tmax[0]}ºC
-        </div>
+        
         <div className="icon-now">
+          
           <FontAwesomeIcon 
             icon={this.changeIcon(currentForecast.icon[0])} 
             size="5x" 
             className="weather-icon today-icon ml-5 mt-4" 
           />
+          <div className="temp-now float-left">
+          {currentForecast.tmax[0]}ºC
+          </div>
+            <div>HR: {currentForecast.humidity1} %  <br></br>
+              Pressure: {currentForecast.pressure1} hPa <br></br>
+              Wind: {currentForecast.wind1} 
+            <div>PP: {currentForecast.pp} mm</div>
+          </div>
         </div>
       </div>   
       <div className="data-now">
-        <div>HR: {currentForecast.humidity1} %  <br></br>
-        Pressure: {currentForecast.pressure1} hPa <br></br>
-        Wind: {currentForecast.wind1} 
-          <div>PP: {currentForecast.pp} mm</div>
-        </div>
+  
       </div>   
       </div>
       </div>

@@ -3,6 +3,8 @@ import { Line, Bar } from 'react-chartjs-2';
 import { connect } from 'react-redux';
 import moment from 'moment';
 
+import './Meteorogram.css';
+
 const styles = {
   fontFamily: 'sans-serif',
   textAlign: 'center',
@@ -84,12 +86,24 @@ class Meteorogram extends Component {
 
     if (this.state.navegation === 0) {
       datasetsCopy[0].data = chartObject.temp.slice();
+      datasetsCopy[0].label = 'Temperature';
+      datasetsCopy[0].borderColor = 'rgba(192,0,0,1)';
+      datasetsCopy[0].pointBorderColor = 'rgba(192,0,0,0.4)';
     } 
     
     if (this.state.navegation === 1) {
       datasetsCopy[0].data = chartObject.pressure.slice();
+      datasetsCopy[0].label = 'Pressure';
+      datasetsCopy[0].pointBorderColor = 'rgba(192,192,192,0.4)';
+      datasetsCopy[0].borderColor = 'rgba(192,192,192,1)';
     }
-
+    
+    if (this.state.navegation === 2) {
+      datasetsCopy[0].data = chartObject.humidity.slice();
+      datasetsCopy[0].label = 'Humidity';
+      datasetsCopy[0].borderColor = 'rgba(75,192,192,0.4)';
+      datasetsCopy[0].pointBorderColor = 'rgba(0,0,192,1)';
+    }
     const label = chartObject.date.slice();
 
     this.setState({
@@ -122,10 +136,13 @@ class Meteorogram extends Component {
     return(
       
       <div id="meteorogram">
-        <h2>Meteorogram</h2>
-        <button onClick={() => {this.onChange(0, 'Temperature')}}><a>Temperature</a></button>
-        <button onClick={() => {this.onChange(1, 'Pressure')}}><a>Pressure</a></button>
+        <div className="options-wrapper">
+          <h2>Meteorogram</h2>
+          <button onClick={() => {this.onChange(0, 'Temperature')}}><a>Temperature</a></button>
+          <button onClick={() => {this.onChange(1, 'Pressure')}}><a>Pressure</a></button>
+          <button onClick={() => {this.onChange(2, 'Humidity')}}><a>Humidity</a></button>
 
+        </div>
         { (() => {
             switch (this.state.navegation) {
               case 0:
@@ -141,11 +158,15 @@ class Meteorogram extends Component {
                           </div>
                         </div>
               case 2:
-                return <div>Nothing</div>
+                return <div style={styles}>
+                        <div>
+                          <Bar data={this.state.data} />
+                        </div>
+                      </div>
             }    
 
         })() 
-        }     
+        } 
       </div>
     )}
 };
