@@ -38,7 +38,7 @@ export default function NavBarWeb(props) {
                               <ButtonToolbar>
                                 <Nav className="mr-auto">
                                   <button className="button-home border-primary"><Link className="text-primary" to="/Home" href="#home">Home</Link></button>  
-                                  <button className="buttons"><Link className="text-light" to="/Maps" href="#maps">Maps</Link></button>  
+                                  <button className="buttons"><Link className="text-light" to="/Charts" href="#charts">Charts</Link></button>  
                                   <button className="buttons"><Link className="text-light" to="/Alerts" href="#alerts">Alerts</Link></button>  
                                   <button className="buttons"><Link className="text-light" to="/News" href="#news">News</Link></button>  
                                   <button className="buttons"><Link className="text-light" to="/Contact" href="#contact">Contact</Link></button>  

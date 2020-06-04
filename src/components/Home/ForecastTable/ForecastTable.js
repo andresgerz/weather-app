@@ -39,7 +39,6 @@ library.add(
 
 import moment from 'moment';
 import { connect } from 'react-redux';
-import { Map } from './Map/Map';
 
 class ForecastTable extends Component {
   
@@ -156,7 +155,7 @@ class ForecastTable extends Component {
       ],
       humidity1: result.list[0].main["humidity"],
       pressure1: result.list[0].main["pressure"],
-      wind1: result.list[0].wind["speed"] + " km/h",
+      wind1: result.list[0].wind.speed + " km/h",
       icon: [   weatherObject[days[0]][0],
                 weatherObject[days[1]][4],
                 weatherObject[days[2]][4],
@@ -165,10 +164,8 @@ class ForecastTable extends Component {
     ]
     }  
   
-  console.log(forecastObject);
   console.log("analysis")
-  console.log(result[0].city.coord);
-  console.log(currentForecast);
+  console.log(result);
 
   return(
     <div className="forecast-container">
@@ -179,9 +176,9 @@ class ForecastTable extends Component {
       <div className="table-buttom">
         <div className="row-bottom">
           <p>{currentForecast.name}</p>
-        <div> 
+        </div> 
         
-        <div className="icon-now">
+        <div className="weather-now">
           
           <FontAwesomeIcon 
             icon={this.changeIcon(currentForecast.icon[0])} 
@@ -191,19 +188,14 @@ class ForecastTable extends Component {
           <div className="temp-now float-left">
           {currentForecast.tmax[0]}ºC
           </div>
-            <div>HR: {currentForecast.humidity1} %  <br></br>
-              Pressure: {currentForecast.pressure1} hPa <br></br>
-              Wind: {currentForecast.wind1} 
-            <div>PP: {currentForecast.pp} mm</div>
+          <div className="today-others">
+            HR: {currentForecast.humidity1} %  <br></br>
+            Pressure: {currentForecast.pressure1} hPa <br></br>
+            Wind: {currentForecast.wind1} 
           </div>
         </div>
       </div>   
-      <div className="data-now">
-  
-      </div>   
       </div>
-      </div>
-    </div>
     { this.state.auxArr.map(iDay => { 
         return(
           <div className="item-day" key={iDay.toString()}>

@@ -20,7 +20,7 @@
 
 
 .row-bottom {
-  padding: 10px;
+  padding-top: 10px;
   width: 100px;
 }
 
@@ -41,6 +41,7 @@
 
 .table-buttom {
   height: 239px;
+  padding-left: 10px;
 }
 
 
@@ -65,24 +66,16 @@ background-color: #2D303D;
 
 
 .temp-now {
-  font-size: 86px;
+  font-size: 64px;
   font-weight: bold;
 }
 
 
-.icon-now {
-  float: right;
-  height: 100%;
-  width: 220px;
-  margin: 0 auto;
-}
-
-
-.data-now {
+.weather-now {
   float: left;
-  width: 100%;
-  font-size: 9px;
-  height: 70px;
+  height: 100%;
+  width: 320px;
+  margin: 0 auto;
 }
 
 

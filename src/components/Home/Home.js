@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Find from './Find/Find';
 import ForecastTable from './ForecastTable/ForecastTable';
-import Meteorogram from './Meteorogram/Meteorogram';
+import Charts from './Charts/Charts';
 import News from './News/News';
 
 
@@ -94,14 +94,11 @@ export default class Home extends Component {
         <React.Fragment>
                         
           <div id="background-top">
-            <Find id="find" 
-          
-              />
-
+            <Find id="find" />
           </div>
           <div id="background-center">
             <ForecastTable id="table" />
-            <Meteorogram />
+            <Charts />
           </div>
           <div id="background-bottom">
             <News />
