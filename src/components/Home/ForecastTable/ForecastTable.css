@@ -66,6 +66,8 @@ background-color: #2D303D;
 
 
 .temp-now {
+  width: 50%;
+  height: 86px;
   font-size: 64px;
   font-weight: bold;
 }
@@ -73,9 +75,23 @@ background-color: #2D303D;
 
 .weather-now {
   float: left;
-  height: 100%;
-  width: 320px;
+  height: 180px;
+  width: 100%;
   margin: 0 auto;
+}
+
+
+.today-others {
+  width: 200px;
+  height: 100px;
+  float: left;
+}
+
+
+.today-icon {
+  width: 50%;
+  height: 60%;
+  float: left;
 }
 
 

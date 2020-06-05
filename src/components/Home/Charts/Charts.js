@@ -9,7 +9,7 @@ const styles = {
   fontFamily: 'sans-serif',
   textAlign: 'center',
   width: '400px',
-  height: '350px',
+  height: '300px',
   float: 'left'
 };
 
@@ -108,11 +108,12 @@ class Charts extends Component {
     console.log("render");
     console.log(this.props.weather);
    
-    let days = [];
     let result = this.props.weather[0];
+
+    
+    localStorage.setItem("result", JSON.stringify(result));
+
     let chartObject = {};
-    let forecastObject = {};
-    let weatherObject = {};
 
     let attributes = Object.keys(result.list[1].main);
     attributes.map(attr => chartObject[attr] = []);
@@ -180,26 +181,31 @@ class Charts extends Component {
       this.updateData();
     }
   }
+
+
+  componentDidMount() {
+    this.updateData();
+  }
   
 
   render() {   
     return(
       <div id="charts">
-        <div className="charts-wrapper">
-          <h2 className="charts-title">Charts</h2>
-          <div style={styles}>
+        <h2 className="charts-title">Charts</h2>
+        <div className="charts-container">
+          <div className="chart" style={styles}>
             <div>
               <Line data={this.state.data1} />
             </div>
           </div>
 
-          <div style={styles}>
+          <div className="chart" style={styles}>
             <div>
               <Line data={this.state.data2} />
             </div>
           </div>
 
-          <div style={styles}>
+          <div className="chart" style={styles}>
             <div>
               <Bar data={this.state.data3} />
             </div>

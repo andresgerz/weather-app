@@ -1,7 +1,11 @@
 import { SEARCH_WEATHER_SUCCESS } from '../actions/index';
 
 
-export default (state = [], action) => {
+const dataStorage = localStorage.getItem('result');
+
+const initialState = [JSON.parse(dataStorage)];
+
+export default (state = initialState, action) => {
   
   switch (action.type) {
     case SEARCH_WEATHER_SUCCESS:

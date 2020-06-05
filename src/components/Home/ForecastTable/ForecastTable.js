@@ -102,11 +102,8 @@ class ForecastTable extends Component {
       chartObject.temp_max.push(main.temp_max);
       chartObject.temp_min.push(main.temp_min);
       chartObject.humidity.push(main.humidity);
-
     }
-    //chartObject = chartObject.temp.push(result.list[i].main.temp);
-    console.log("forecasDate");
-    console.log(chartObject);
+
     
     days = Object.keys(forecastObject);
     let dailyTemp = []
@@ -180,14 +177,16 @@ class ForecastTable extends Component {
         
         <div className="weather-now">
           
+        <div className="temp-now float-left">
+        {currentForecast.tmax[0]}ºC
+        </div>
+        <div className="today-icon">
           <FontAwesomeIcon 
             icon={this.changeIcon(currentForecast.icon[0])} 
             size="5x" 
-            className="weather-icon today-icon ml-5 mt-4" 
+            className="weather-icon ml-5 mt-4" 
           />
-          <div className="temp-now float-left">
-          {currentForecast.tmax[0]}ºC
-          </div>
+        </div>
           <div className="today-others">
             HR: {currentForecast.humidity1} %  <br></br>
             Pressure: {currentForecast.pressure1} hPa <br></br>
@@ -223,7 +222,6 @@ class ForecastTable extends Component {
     }
   </div>
   );
-    
 }
   
 
