@@ -1,5 +1,5 @@
 {
-  "name": "weather-app-ag",
+  "name": "weather-app",
   "version": "1.0.0",
   "description": "Describe weather-app here",
   "private": true,
@@ -9,8 +9,7 @@
     "start": "nwb serve-react-app -p $PORT",
     "test": "nwb test-react",
     "test:coverage": "nwb test-react --coverage",
-    "test:watch": "nwb test-react --server",
-    "heroku-postbuild": "npm run build"
+    "test:watch": "nwb test-react --server"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
