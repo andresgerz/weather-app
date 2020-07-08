@@ -105,19 +105,15 @@ class Charts extends Component {
 
 
   updateData = () => {
-    console.log("render");
-    console.log(this.props.weather);
    
     let result = this.props.weather[0];
-
     
     localStorage.setItem("result", JSON.stringify(result));
 
     let chartObject = {};
-
     let attributes = Object.keys(result.list[1].main);
+
     attributes.map(attr => chartObject[attr] = []);
-    
     chartObject["date"] = [];
     
     for (let i = 0; i < result.list.length; i++) {
@@ -132,8 +128,6 @@ class Charts extends Component {
       chartObject.pressure.push(main.pressure);
 
     }
-    console.log('chartobj');
-    console.log(chartObject);
       
     const datasetsCopy1 = this.state.data1.datasets;
     const datasetsCopy2 = this.state.data2.datasets;
@@ -177,7 +171,6 @@ class Charts extends Component {
   componentDidUpdate(prevProps) {
     // Uso tipico (no olvides de comparar los props):
     if (this.props.weather !== prevProps.weather) {
-      console.log("updateDATA");
       this.updateData();
     }
   }

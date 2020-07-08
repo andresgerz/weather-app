@@ -9,7 +9,6 @@ const ROOT_URL = `https://api.openweathermap.org/data/2.5/forecast?appid=${API_K
 
 
 function searchCityCountry(city) {
-  console.log('searchCityCountry');
   const url = `${ROOT_URL}&q=${city}&units=metric`;
   return axios.get(url);
 }
