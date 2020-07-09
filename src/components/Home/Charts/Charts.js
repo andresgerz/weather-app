@@ -107,7 +107,6 @@ class Charts extends Component {
   updateData = () => {
    
     let result = this.props.weather[0];
-    
     localStorage.setItem("result", JSON.stringify(result));
 
     let chartObject = {};
@@ -182,30 +181,31 @@ class Charts extends Component {
   
 
   render() {   
-    return(
-      <div id="charts">
-        <h2 className="charts-title">Charts</h2>
-        <div className="charts-container">
-          <div className="chart" style={styles}>
-            <div>
-              <Line data={this.state.data1} />
+      return(
+        <div id="charts">
+          <h2 className="charts-title">Charts</h2>
+          <div className="charts-container">
+            <div className="chart" style={styles}>
+              <div>
+                <Line data={this.state.data1} />
+              </div>
             </div>
-          </div>
 
-          <div className="chart" style={styles}>
-            <div>
-              <Line data={this.state.data2} />
+            <div className="chart" style={styles}>
+              <div>
+                <Line data={this.state.data2} />
+              </div>
             </div>
-          </div>
 
-          <div className="chart" style={styles}>
-            <div>
-              <Bar data={this.state.data3} />
+            <div className="chart" style={styles}>
+              <div>
+                <Bar data={this.state.data3} />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    )}
+      )
+    }
 };
   
 
