@@ -1,4 +1,11 @@
+#charts-wrapper {
+  height: 350px;
+  background-color: #1D202B;
+}
+
+
 .charts-title {
+  height: 50px;
   text-align: center;
   margin: 0 auto;
 }

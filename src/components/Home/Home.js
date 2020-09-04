@@ -2,7 +2,7 @@ import React from 'react';
 
 import Find from './Find/Find';
 import ForecastTable from './ForecastTable/ForecastTable';
-import Charts from './Charts/Charts';
+import Charts from '../Charts/Charts';
 import News from './News/News';
 
 

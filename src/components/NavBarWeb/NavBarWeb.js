@@ -17,40 +17,37 @@ library.add(
 )
 
 // Hook component
-export default function NavBarWeb(props) {
+export default function NavBarWeb() {
   
-        return (  <React.Fragment>
-                    <div id="navbar-wrapper" className="w-100" className="container-fluid">
+        return (  
 
-                      <div className="website-name float-left text-light">
-                        <div className="weather-icon-nav">
-                          <FontAwesomeIcon icon={faCloud} size="3x" className="weather-icon" />
-                        </div>
-                        <div className="weather-app">
-                          <strong>Weather App</strong>
-                          <p>tagline goes here</p>
-                        </div>
-                      </div>
-                        <div className="options">
-                          <Navbar collapseOnSelect expand="lg" variant="dark">
-                            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                            <Navbar.Collapse id="responsive-navbar-nav">
-                              <ButtonToolbar>
-                                <Nav className="mr-auto">
-                                  <button className="button-home border-primary"><Link className="text-primary" to="/Home" href="#home">Home</Link></button>  
-                                  <button className="buttons"><Link className="text-light" to="/Charts" href="#charts">Charts</Link></button>  
-                                  <button className="buttons"><Link className="text-light" to="/Alerts" href="#alerts">Alerts</Link></button>  
-                                  <button className="buttons"><Link className="text-light" to="/News" href="#news">News</Link></button>  
-                                  <button className="buttons"><Link className="text-light" to="/Contact" href="#contact">Contact</Link></button>  
-                                  
-                                </Nav>
-                              </ButtonToolbar>
-                            </Navbar.Collapse>
-                          </Navbar>
-                        </div>
-                    </div>
+          <div id="navbar-wrapper" className="w-100" className="container-fluid">
 
-                    {true && <Redirect to="/Home" />}
-                  </React.Fragment>
+            <div className="website-name float-left text-light">
+              <div className="weather-icon-nav">
+                <FontAwesomeIcon icon={faCloud} size="3x" className="weather-icon" />
+              </div>
+              <div className="weather-app">
+                <strong>Weather App</strong>
+                <p>tagline goes here</p>
+              </div>
+            </div>
+              <div className="options">
+                <Navbar collapseOnSelect expand="lg" variant="dark">
+                  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                  <Navbar.Collapse id="responsive-navbar-nav">
+                    <ButtonToolbar>
+                      <Nav className="mr-auto">
+                        <button className="button-home border-primary"><Link className="text-primary" to="/">Home</Link></button>  
+                        <button className="buttons"><Link className="text-light" to="/charts">Charts</Link></button>  
+                        <button className="buttons"><Link className="text-light" to="/alerts">Alerts</Link></button>  
+                        <button className="buttons"><Link className="text-light" to="/news" >News</Link></button>  
+                        <button className="buttons"><Link className="text-light" to="/contact" >Contact</Link></button>  
+                      </Nav>
+                    </ButtonToolbar>
+                  </Navbar.Collapse>
+                </Navbar>
+              </div>
+          </div>                  
     )
 }

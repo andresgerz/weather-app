@@ -182,7 +182,7 @@ class Charts extends Component {
 
   render() {   
       return(
-        <div id="charts">
+        <div id="charts-wrapper">
           <h2 className="charts-title">Charts</h2>
           <div className="charts-container">
             <div className="chart" style={styles}>
