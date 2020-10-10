@@ -1,6 +1,5 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Auth0Provider } from "@auth0/auth0-react";
 
 
 // Redux stuff
@@ -26,13 +25,7 @@ const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
 render(
   <Provider store={store}>
-    <Auth0Provider
-      domain={"dev-u1xyhg6l.eu.auth0.com"}
-      clientId={"qI4N3yrxGFMz2dFSDETCaoJ3MFEY1TdS"}
-      redirectUri={window.location.origin}
-    >
       <App />
-    </Auth0Provider>
   </Provider>
   , document.querySelector('#app')
 );

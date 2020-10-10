@@ -1,11 +1,7 @@
 const mongoose = require('mongoose');
 
-const URI = process.env.MONGODB_URI
-  ? process.env.MONGODB_URI
-  : 'mongodb://localhost/weather-app-dbtest';
 
-
-mongoose.connect(URI, {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true
