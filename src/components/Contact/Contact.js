@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Col, InputGroup, Button, Row } from 'react-bootstrap';
+import { Form, Col, Button} from 'react-bootstrap';
 import axios from 'axios';
 
 import "./Contact.css";
@@ -29,14 +29,15 @@ export default class Contact extends Component {
   componentDidMount() {
     this.getUsers();
   }
-
-
+  
+  
   getUsers = async () => {
-    const res = await axios.get('/api/users');
-
+    const res = await axios.get('http://localhost:4000/api/users');
+    
     this.setState({
       users: res.data
     });
+    console.log(this.state.users.map(user => user.firstname));
   }
 
   
@@ -45,7 +46,7 @@ export default class Contact extends Component {
     e.persist();
     const form = e.currentTarget;
     
-    await axios.post('/api/users', {
+    await axios.post('http://localhost:4000/api/users', {
       firstname: this.state.firstname,
       lastname: this.state.lastname,
       phone: this.state.phone,
@@ -85,14 +86,6 @@ export default class Contact extends Component {
       [name]: value
     })
   }
-
-
-  /* componentWillUnmount() {
-    this.setState({
-      validated: false
-    });
-  } */
-
 
 
    render() { 
@@ -274,8 +267,13 @@ export default class Contact extends Component {
                 
                   <Button type="submit">Submit form</Button>
                 </Form>
+                <div>
+                  <ol>
+                    {this.state.users.map((user, id) => <li key={id}>{user.firstname}</li>)
+                    }
+                  </ol>
+                </div>
               </div>
-    );
-  
+    ); 
 }
 }

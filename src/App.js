@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './components/Home/Home';
 import NavBarWeb from './components/NavBarWeb/NavBarWeb';
 import Charts from './components/Charts/Charts';
-import Alerts from './components/Alerts/Alerts';
+import Login from './components/Login/Login';
 import News from './components/Home/News/News';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
@@ -24,9 +24,9 @@ export default function App() {
       
           <Route exact path="/" component={Home} />
           <Route path="/charts" component={Charts} />
-          <Route path="/alerts" component={Alerts} />
           <Route path="/news" component={News} />
           <Route path="/contact" component={Contact} />
+          <Route path="/login" component={Login} />
           
           <Footer />
           

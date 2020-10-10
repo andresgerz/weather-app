@@ -115,7 +115,7 @@ class ForecastTable extends Component {
           return(
             <div className="item-day" key={index}>
               <div className="table-top">
-                {moment().day(index+3).locale("en").format("dddd")}
+                {moment(new Date()).day(index-1).locale("en").format("dddd")}
               </div>
               <div className="table-buttom">
                 <div className="boxes-next-item-day">  

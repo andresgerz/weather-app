@@ -40,9 +40,9 @@ export default function NavBarWeb() {
                       <Nav className="mr-auto">
                         <button className="button-home border-primary"><Link className="text-primary" to="/">Home</Link></button>  
                         <button className="buttons"><Link className="text-light" to="/charts">Charts</Link></button>  
-                        <button className="buttons"><Link className="text-light" to="/alerts">Alerts</Link></button>  
                         <button className="buttons"><Link className="text-light" to="/news" >News</Link></button>  
                         <button className="buttons"><Link className="text-light" to="/contact" >Contact</Link></button>  
+                        <button className="buttons"><Link className="text-light" to="/login">Login</Link></button>  
                       </Nav>
                     </ButtonToolbar>
                   </Navbar.Collapse>
