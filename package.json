@@ -1,12 +1,13 @@
 {
   "name": "weather-app",
   "version": "1.0.0",
-  "description": "Describe weather-app here",
+  "description": "Weather app with React.js  and Node.js",
   "private": true,
   "scripts": {
     "build": "nwb build-react-app",
     "clean": "nwb clean-app",
     "start": "nwb serve-react-app -p $PORT",
+    "startback": "nodemon backend/src/index.js --exec babel-node",
     "test": "nwb test-react",
     "test:coverage": "nwb test-react --coverage",
     "test:watch": "nwb test-react --server"
@@ -19,6 +20,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
     "@fortawesome/react-fontawesome": "^0.1.8",
     "axios": "^0.19.0",
+    "bcryptjs": "^2.4.3",
     "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
     "cheerio": "^1.0.0-rc.3",
@@ -28,6 +30,8 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "firebase": "^7.23.0",
+    "helmet": "^4.1.1",
+    "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "mongoose": "^5.9.18",
@@ -50,6 +54,10 @@
     "sass-loader": "^7.3.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.1",
+    "@babel/node": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
     "css-loader": "^3.5.3",
     "eslint-plugin-react-hooks": "^2.3.0",
     "file-loader": "^4.3.0",
@@ -64,7 +72,7 @@
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0"
   },
-  "author": "",
+  "author": "andresgerz",
   "license": "MIT",
   "repository": ""
 }

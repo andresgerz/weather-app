@@ -14,6 +14,7 @@ userCtrl.getUsers = async (req, res) => {
     }
 };
 
+
 userCtrl.createUser = async (req, res) => {
     try {
         const { firstname, lastname, phone, birth, address, city, state, country, email } = req.body;
