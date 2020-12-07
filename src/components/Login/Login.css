@@ -1,13 +1,12 @@
 .login-container {
-  background-color: #fff;
-  height: 200px;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  background-color: #fff;
   color: #000;
+  display: flex;
   font-size: 20px;
+  height: 200px;
+  justify-content: center;
 }
-
 
 .item {
   height: 100px;

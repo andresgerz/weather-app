@@ -1,20 +1,4 @@
 #charts-wrapper {
-  height: 350px;
   background-color: #1D202B;
-}
-
-
-.charts-title {
-  height: 50px;
-  text-align: center;
-  margin: 0 auto;
-}
-
-
-.container {
-  width: 1200px;
-  height: 350px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
+  padding-bottom: 2rem;
 }

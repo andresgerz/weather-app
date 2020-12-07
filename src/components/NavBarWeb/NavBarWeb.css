@@ -1,9 +1,8 @@
 #navbar-wrapper {
-  height: 139px;
   background-color: #1D202B;
+  height: 139px;
   
 }
-
 
 #navbar-wrapper .button-home {
   background-color: #1D202B;
@@ -11,12 +10,10 @@
   padding: -20px 10px;  
 }
 
-
 #navbar-wrapper .buttons, #navbar-wrapper .last-button {
   background-color: #1D202B;
   border: #1D202B;
 }
-
 
 @media(max-width: 991px) {
 
@@ -25,29 +22,24 @@
   }
 }
 
-
 @media( min-width: 991px ){
 
   .buttons {
     margin-left: 32px;
   }
 }
-
-
 @media(max-width: 435px) {
   .weather-app {
     display: none;
   }
 }
 
-
 .website-name {
-  margin: 45.5px auto;
-  width: 215px;
-  position: absolute;
   left: 5rem;
+  margin: 45.5px auto;
+  position: absolute;
+  width: 215px;
 }
-
 
 .weather-app {
   float: right;
@@ -55,11 +47,9 @@
   width: 140px;
 }
 
-
 .weather-app p {
   font-size: 13px;
 }
-
 
 .weather-icon-nav {
   float: left;
@@ -67,10 +57,9 @@
   width: 40px;
 }
 
-
 .options {
-  width: 470px;
   margin-top: 45px;
   position: absolute;
   right: 3rem;
+  width: 470px;
 }

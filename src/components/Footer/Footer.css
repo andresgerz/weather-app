@@ -1,22 +1,20 @@
 .footer-wrapper {
+  align-content: flex-start;
   display: flex;
   flex-wrap: wrap;
-  align-content: flex-start;
   justify-content: space-between;
-  width: 85%;
   margin: auto;
-  padding-top: 100px;
   min-height: 300px;
+  padding-top: 100px;
+  width: 85%;
 }
-
 
 .copyright {
-  width: 300px;
   height: 50px;
+  width: 300px;
 }
 
-
 .social-icons {
-  width: 140px;
   height: 50px; 
+  width: 140px;
 }

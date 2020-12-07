@@ -1,31 +1,27 @@
 .news-wrapper {
-  padding-top: 100px;
-  margin: 0 50px;
+  color: white;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(80px, 1fr) minmax(180px, 2fr));
-  color: white;
+  margin: 0 50px;
+  padding-top: 100px;
 }
-
 
 .news {
   text-align: left;
 }
-
 
 .news h5 {
   font-size: 14px;
   font-weight: bold;
 }
 
-
 .news p {
   font-size: 14px;
 }
 
-
 .date {
+  color: #009AD8;
   font-size: 30px;
   margin: 0 auto;
   margin-top: -6px;
-  color: #009AD8;
 }

@@ -8,8 +8,7 @@ import './Charts.css';
 const styles = {
   fontFamily: 'sans-serif',
   textAlign: 'center',
-  width: '400px',
-  height: '300px',
+  width: '100%',
   float: 'left'
 };
 
@@ -182,24 +181,26 @@ class Charts extends Component {
 
   render() {   
       return(
-        <div id="charts-wrapper">
-          <h2 className="charts-title">Charts</h2>
-          <div className="charts-container">
-            <div className="chart" style={styles}>
-              <div>
-                <Line data={this.state.data1} />
+        <div id="charts-wrapper" className="container-fluid">
+          <div className="row">
+            <div className="col-12 p-5">
+              <h2 className="text-center">Charts</h2>
+            </div>
+            <div className="col-12 col-sm-8 offset-sm-2 col-md-5 offset-md-1 offset-xl-0 col-xl-4 p-5" style={styles}>
+              <div className="img-fluid">
+                <Line height="300px" data={this.state.data1} />
               </div>
             </div>
 
-            <div className="chart" style={styles}>
-              <div>
-                <Line data={this.state.data2} />
+            <div className="col-12 col-sm-8 offset-sm-2 col-md-5 offset-md-0 col-xl-4 p-5" style={styles}>
+              <div className="img-fluid">
+                <Line height="300px" data={this.state.data2} />
               </div>
             </div>
 
-            <div className="chart" style={styles}>
-              <div>
-                <Bar data={this.state.data3} />
+            <div className="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 offset-xl-0 col-xl-4 p-5" style={styles}>
+              <div className="img-fluid">
+                <Bar height="300px" data={this.state.data3} />
               </div>
             </div>
           </div>

@@ -1,39 +1,37 @@
 #find-wrapper {
-  width: 88%;
   height: 56px;
   margin: auto;
   margin-top: 151.5px;
+  width: 88%;
 }
 
 #find-wrapper .input-find {
+  background-color: #1D202B;
+  border-radius: 100px;
   float: left;
   height: 56px;
-  border-radius: 100px;
   text-indent: 25px;
-  background-color: #1D202B;
 }
 
 #find-wrapper .button-find {
+  color: white;
+  background-color: #009AD8;
+  border-radius: 100px;
   float: left;
-  width: 120px;
   height: 46px;
   margin-left: -125px;
   margin-top: 5px; 
-  border-radius: 100px;
-  color: white;
-  background-color: #009AD8;
+  width: 120px;
 }
-
 
 .alert-wrapper {
   position: relative;
   top: -8px;
 }
 
-
 .alert-bar {
-  width: 88%;
   margin: auto;
   position: absolute;
   top: -100px;
+  width: 88%;
 }
